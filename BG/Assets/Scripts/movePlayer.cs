@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class movePlayer : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    public float speed = 10f;
-    private Vector2 moveVector;
+    public float Speed = 10f;
+    private Rigidbody2D Rigidbody;
+    private Vector2 MoveVector;
 
+    //start и awake почти одна хуйня
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        Rigidbody = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        moveVector.x = Input.GetAxisRaw("Horizontal");
-        moveVector.y = Input.GetAxisRaw("Vertical");
+        MoveVector.x = Input.GetAxisRaw("Horizontal");
+        MoveVector.y = Input.GetAxisRaw("Vertical");
     }
-
+    //для физического перемещения нужно использовать FixedUpdate
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + moveVector * speed * Time.fixedDeltaTime);
+        Rigidbody.MovePosition(Rigidbody.position + MoveVector * Speed * Time.fixedDeltaTime);
     }
 }
