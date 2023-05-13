@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class moveBullet : MonoBehaviour
 {
-    public float speed;
-    public float lifetime;
-    public float distance;
-    public int damage;
-    public LayerMask whatIsSolid;
+    public float Speed;
+    public int Damage;
+    private Vector2 Move;
+    private Rigidbody2D Rigidbody;
+
+    private void Start()
+    {
+        Rigidbody = GetComponent<Rigidbody2D>();
+    }
 
     private void Update()
     {
-     RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
-     //if(hitInfo.collider != null)
-        {
-            //if (hitInfo.collider.CompareTag("Enemy"))
-            {
-            //    hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
-            }
-            //Destroy(gameObject);
-        }
-     transform.Translate(Vector2.up * speed * Time.deltaTime);
+        transform.Translate(Vector2.right * Speed * Time.deltaTime);
     }
 }
