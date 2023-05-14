@@ -19,13 +19,5 @@ public class Bullet : MonoBehaviour
         transform.Translate(Vector2.right * Speed * Time.deltaTime);
         
     }
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.tag == "Enemy")
-        {
-            
-        }
-    }
-
 
 }
