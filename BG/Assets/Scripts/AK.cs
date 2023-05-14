@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveGun : MonoBehaviour
+public class AK : MonoBehaviour
 {
-
+    public static int Damage = 10;
     public float offset;
     public GameObject bullet;
     public Transform shotPoint;
 
     private float timeBtwShots;
     public float startTimeBtwShots;
+    public Animator animator;
 
     void Update()
     {
@@ -20,10 +21,16 @@ public class moveGun : MonoBehaviour
 
         if (timeBtwShots <= 0)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.Get("Fire1"))
             {
+                animator.SetBool("Shoot", true);
+                Bullet.Damage = Damage;
                 Instantiate(bullet, shotPoint.position, transform.rotation);
                 timeBtwShots = startTimeBtwShots;
+            }
+            else
+            {
+                animator.SetBool("Shoot", false);
             }
         }
         else 

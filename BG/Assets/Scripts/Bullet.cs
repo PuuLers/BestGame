@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveBullet : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     public float Speed;
-    public int Damage;
+    public static int Damage;
     private Vector2 Move;
     private Rigidbody2D Rigidbody;
 
@@ -17,5 +17,15 @@ public class moveBullet : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector2.right * Speed * Time.deltaTime);
+        
     }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            
+        }
+    }
+
+
 }
