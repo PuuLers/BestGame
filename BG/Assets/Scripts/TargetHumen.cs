@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class TargetHumen : MonoBehaviour
 {
-    public static int HP = 20;
+    public int HP = 20;
     private Animator animator;
     private void fall()
     {
-        animator.Play("fall");
+        animator.SetBool("deadtarget", true);
     }
     private void Start()
     {
