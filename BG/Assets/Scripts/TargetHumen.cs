@@ -5,27 +5,28 @@ using UnityEngine;
 
 public class TargetHumen : MonoBehaviour
 {
-    public static int HP = 1;
-    public Animator animator;
+    public static int HP = 20;
+    private Animator animator;
     private void fall()
     {
-        animator.SetBool("deadtarget", true);
+        animator.Play("fall");
     }
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    public void TakeDamage(int Damage)
+    {
+        HP -= Damage;
+    }
+
+
     private void Update()
     {
         if (HP < 0)
         {
             fall();
         }
-    }
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Bullet"))
-        {
-            HP = HP - Bullet.Damage;
-            Debug.Log("gdfgdfgd");
-        }
-
-
     }
 }
