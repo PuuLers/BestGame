@@ -18,6 +18,18 @@ public class Player : MonoBehaviour
     {
         MoveVector.x = Input.GetAxisRaw("Horizontal");
         MoveVector.y = Input.GetAxisRaw("Vertical");
+        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float rotZ = Mathf.Atan2(difference.x, difference.y) * Mathf.Rad2Deg;
+        Vector3 LocalScale = Vector3.one;
+
+        if (rotZ > 90 || rotZ < -90)
+        {
+            LocalScale.y = -1f;
+        }
+        else
+        {
+            LocalScale.y = +1f;
+        }
     }
     
     private void FixedUpdate()

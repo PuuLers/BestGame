@@ -19,8 +19,8 @@ public class TargetHumen : MonoBehaviour
     public void TakeDamage(int Damage)
     {
         HP -= Damage;
+        
     }
-
 
     private void Update()
     {
