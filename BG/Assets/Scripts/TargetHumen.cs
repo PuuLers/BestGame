@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TargetHumen : MonoBehaviour
 {
-    public int HP = 20;
+    public int HP = 1;
     private Animator animator;
     private void fall()
     {
