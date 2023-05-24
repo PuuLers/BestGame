@@ -485,8 +485,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1486999458}
-  speed: 5
-  agrodistance: 50
+  speed: 0.1
+  agrodistance: 30
 --- !u!4 &730716265
 Transform:
   m_ObjectHideFlags: 0
