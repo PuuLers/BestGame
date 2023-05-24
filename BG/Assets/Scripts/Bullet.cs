@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     public static int Damage;
     public LayerMask WhatIsSolid;
     public float distanse;
-
+    
     private void Update()
     {
         RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.right, distanse, WhatIsSolid);
@@ -19,9 +19,10 @@ public class Bullet : MonoBehaviour
             if (hitinfo.collider.CompareTag("Enemy"))
             {
                 hitinfo.collider.GetComponent<TargetHumen>().TakeDamage(Damage);
-               
             }
-            Destroy(gameObject);
+
+
+         Destroy(gameObject);
         }
         transform.Translate(Vector2.right * Speed * Time.deltaTime);
         

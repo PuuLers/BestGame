@@ -18,13 +18,12 @@ public class TargetHumen : MonoBehaviour
 
     public void TakeDamage(int Damage)
     {
-        HP -= Damage;
-        
+        HP -= Damage; 
     }
 
     private void Update()
     {
-        if (HP < 0)
+        if (HP <= 0)
         {
             fall();
         }

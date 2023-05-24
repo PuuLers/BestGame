@@ -20,7 +20,7 @@ public class AK : MonoBehaviour
     }
     private void Update()
     {
-        Vector3 difference= Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float rotZ = Mathf.Atan2(difference.x, difference.y) * Mathf.Rad2Deg;   
         transform.rotation = Quaternion.Euler(0f, 0f, -rotZ + offset);
 
@@ -35,6 +35,7 @@ public class AK : MonoBehaviour
         {
             LocalScale.y = LocalScale.y * +1f;
         }
+
         transform.localScale = LocalScale;
         if (Reload <= 0)
         {
