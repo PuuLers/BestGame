@@ -30,7 +30,8 @@ public class Mouse : MonoBehaviour
 
         if (HP <= 0)
         {
-            animator.SetInteger("Mouse states", 1);
+            //animator.SetInteger("Mouse states", 1);
+            Destroy(gameObject);
         }
 
         Vector3 LocalScale = Vector3.one;

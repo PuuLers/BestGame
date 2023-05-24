@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class TargetHumen : MonoBehaviour
+public class TargetHuman : MonoBehaviour
 {
     public int HP = 1;
     private Animator animator;

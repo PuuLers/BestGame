@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - Bullet
-  - EnemyMouse
+  - Mouse
+  - TargetHuman
   layers:
   - Default
   - TransparentFX
