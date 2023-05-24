@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 730716264}
   - component: {fileID: 730716263}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Mouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

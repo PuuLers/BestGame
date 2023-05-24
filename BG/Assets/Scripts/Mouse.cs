@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class EnemyMovement : MonoBehaviour
+public class Mouse : MonoBehaviour
 {
 
-    private Rigidbody2D physic;
+    private Rigidbody2D rb;
     public Transform player;
     public float speed;
     public float agrodistance;
@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        physic = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -34,19 +34,17 @@ public class EnemyMovement : MonoBehaviour
         {
             if (player.position.x < transform.position.x || player.position.y < transform.position.y)
             {
-                physic.velocity = new Vector2(-speed, -speed);
+                rb.velocity = new Vector2(speed, -speed);
             }
-
-
             else
             {
-                physic.velocity = new Vector2(speed, speed);
+                rb.velocity = new Vector2(-speed, speed);
             }
         }
 
         void StopHunting()
         {
-            physic.velocity = new Vector2(0,0);
+            rb.velocity = new Vector2(0,0);
         }
 
 
