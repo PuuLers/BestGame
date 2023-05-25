@@ -3,37 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using static UnityEditor.VersionControl.Asset;
 
 public class Mouse : MonoBehaviour
 {
 
     public int HP = 10;
-    public Transform player;
+    private Transform player;
     public float speed;
     public float agrodistance;
-    public Animator animator;
-
+    private Animator animator;
+    private bool AgroMode = true;
 
     public void TakeDamage(int Damage)
     {
         HP -= Damage;
     }
 
-    void Start()
-    {
-        player  = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-    }
 
-    void Update()
+    private void Move()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
-
-        if (HP <= 0)
-        {
-            //animator.SetInteger("Mouse states", 1);
-            Destroy(gameObject);
-        }
-
         Vector3 LocalScale = Vector3.one;
         if (transform.position.x > player.position.x)
         {
@@ -44,5 +34,25 @@ public class Mouse : MonoBehaviour
             LocalScale.x = LocalScale.x * -1;
         }
         transform.localScale = LocalScale;
+    }
+
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        player  = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
+
+    void Update()
+    {
+       if (AgroMode == true)
+        {
+            Move();
+        }
+        if (HP <= 0)
+        {
+            animator.SetInteger("Mouse states", 1);
+            AgroMode = false;
+        }
     }
 } 
