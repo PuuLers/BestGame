@@ -7,7 +7,7 @@ using static UnityEditor.VersionControl.Asset;
 
 public class Mouse : MonoBehaviour
 {
-
+    public int Damage = 10;
     public int HP = 10;
     private Transform player;
     public float speed;
@@ -55,4 +55,17 @@ public class Mouse : MonoBehaviour
             AgroMode = false;
         }
     }
-} 
+
+    public void attacked()
+    {
+        Player.HelthPoint -= Damage;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            attacked();
+        }
+    }
+}

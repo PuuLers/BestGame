@@ -10,11 +10,11 @@ public class Bullet : MonoBehaviour
     public static int Damage;
     public LayerMask WhatIsSolid;
     public float distanse;
-    
+
     private void Update()
     {
         RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.right, distanse, WhatIsSolid);
-        if(hitinfo.collider != null)
+        if (hitinfo.collider != null)
         {
             if (hitinfo.collider.CompareTag("TargetHuman"))
             {
@@ -23,11 +23,15 @@ public class Bullet : MonoBehaviour
             else if (hitinfo.collider.CompareTag("Mouse"))
             {
                 hitinfo.collider.GetComponent<Mouse>().TakeDamage(Damage);
-            }    
+            }
 
-                Destroy(gameObject);
+            Destroy(gameObject);
         }
         transform.Translate(Vector2.right * Speed * Time.deltaTime);
-        
+
     }
+
+
 }
+        
+ 

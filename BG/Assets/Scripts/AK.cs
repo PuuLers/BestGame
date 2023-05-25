@@ -43,7 +43,6 @@ public class AK : MonoBehaviour
             {
                 animator.SetBool("Shoot", true);
                 fire();
-
             }
             else
             {

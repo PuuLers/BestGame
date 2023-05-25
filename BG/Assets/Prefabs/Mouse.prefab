@@ -132,10 +132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e9b3c1f775783c41b4c83722fa00562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 10
   HP: 10
   speed: 0.6
   agrodistance: 30
-  animator: {fileID: 0}
 --- !u!95 &7591333913916647043
 Animator:
   serializedVersion: 5
@@ -219,7 +219,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.4114418, y: -0.23925224}

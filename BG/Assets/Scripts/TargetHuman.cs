@@ -18,7 +18,8 @@ public class TargetHuman : MonoBehaviour
 
     public void TakeDamage(int Damage)
     {
-        HP -= Damage; 
+        HP -= Damage;
+        Debug.Log("υσι");
     }
 
     private void Update()
@@ -29,3 +30,10 @@ public class TargetHuman : MonoBehaviour
         }
     }
 }
+
+
+
+
+
+
+

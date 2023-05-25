@@ -4,36 +4,26 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    static public int HelthPoint = 100;
     public float Speed = 10f;
     private Rigidbody2D Rigidbody;
     private Vector2 MoveVector;
-    public Animator anim;
-
-   
+    private Animator anim;
+    
     void Start()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
-
     void Update()
     {
+        Debug.Log(HelthPoint);
+        if (HelthPoint <= 0)
+        {
+            Debug.Log("ÒÛÑÄÎÕÍÀÕÓÉ");
+        }
         MoveVector.x = Input.GetAxisRaw("Horizontal");
         MoveVector.y = Input.GetAxisRaw("Vertical");
-
-        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float rotZ = Mathf.Atan2(difference.x, difference.y) * Mathf.Rad2Deg;
-        
-        Vector3 LocalScale = Vector3.one;
-        if (rotZ < 0 || rotZ > 180)
-        {
-            LocalScale.y = LocalScale.y * -1f;
-            Debug.Log(1);
-        }
-        else
-        {
-            LocalScale.y = LocalScale.y * +1f;
-        }
-        transform.localScale = LocalScale;
 
         if (MoveVector.x != 0 || MoveVector.y != 0)
         {
@@ -45,12 +35,11 @@ public class Player : MonoBehaviour
         }
 
     }
-    
     private void FixedUpdate()
     {
         Rigidbody.MovePosition(Rigidbody.position + MoveVector * Speed * Time.fixedDeltaTime);
     }
 
-    
+
 
 }
