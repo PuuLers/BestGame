@@ -7,6 +7,7 @@ TagManager:
   - Bullet
   - Mouse
   - TargetHuman
+  - Bat
   layers:
   - Default
   - TransparentFX

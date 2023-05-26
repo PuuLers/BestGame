@@ -24,6 +24,10 @@ public class Bullet : MonoBehaviour
             {
                 hitinfo.collider.GetComponent<Mouse>().TakeDamage(Damage);
             }
+            else if (hitinfo.collider.CompareTag("Bat"))
+            {
+                hitinfo.collider.GetComponent<Bat>().TakeDamage(Damage);
+            }
 
             Destroy(gameObject);
         }
