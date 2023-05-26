@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   HP: 10
-  speed: 0.6
+  speed: 0.5
   agrodistance: 30
 --- !u!95 &7591333913916647043
 Animator:
