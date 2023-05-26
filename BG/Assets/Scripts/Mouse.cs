@@ -59,6 +59,7 @@ public class Mouse : MonoBehaviour
     public void attacked()
     {
         Player.HelthPoint -= Damage;
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -10,7 +10,15 @@ public class Player : MonoBehaviour
     private Rigidbody2D Rigidbody;
     private Vector2 MoveVector;
     private Animator anim;
-    
+
+
+
+
+    public void Hit()
+    {
+        anim.SetBool("Player hit", true);
+    }
+
     void Start()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
