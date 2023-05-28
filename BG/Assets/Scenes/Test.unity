@@ -470,6 +470,8 @@ MonoBehaviour:
   HP: 20
   speed: 0.1
   agrodistance: 0
+  attackRate: 1
+  attackDamage: 10
 --- !u!4 &1867113792
 Transform:
   m_ObjectHideFlags: 0
@@ -478,7 +480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867113790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.635788, y: 3.5197332, z: -0.05603402}
+  m_LocalPosition: {x: -6.19, y: 4.04, z: -0.05603402}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

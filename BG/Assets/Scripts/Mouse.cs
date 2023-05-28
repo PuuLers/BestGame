@@ -14,6 +14,10 @@ public class Mouse : MonoBehaviour
     public float agrodistance;
     private Animator animator;
     private bool AgroMode = true;
+    public float attackRate = 1.0f;
+    public float attackDamage = 10.0f;
+    private bool canAttack = true;
+    private float timer = 0.0f;
 
     public void TakeDamage(int Damage)
     {
@@ -54,19 +58,32 @@ public class Mouse : MonoBehaviour
             animator.SetInteger("Mouse states", 1);
             AgroMode = false;
         }
+        if (canAttack)
+        {
+            Attack();
+            timer = 0.0f;
+            canAttack = false; 
+          {
+            timer += Time.deltaTime;
+            if (timer >= attackRate)
+            {
+                canAttack = true;
+            }
+          }
+        }
+
     }
 
-    public void attacked()
+    public void Attack()
     {
         Player.HelthPoint -= Damage;
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            attacked();
+            Attack();
         }
     }
 }
