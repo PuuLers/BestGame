@@ -7,6 +7,7 @@ using UnityEngine;
         public int Damage = 15;
         public int HP = 20;
         private Transform player;
+        private float playerX;
         public float speed;
         public float agrodistance;
         private Animator animator;
@@ -40,8 +41,14 @@ using UnityEngine;
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         }
 
+        private void FindPlayerPositionX() 
+        {
+            playerX = GameObject.Find("Player").transform.position.x;
+        }
+
         void Update()
         {
+            FindPlayerPositionX();
             if (AgroMode == true)
             {
                 Move();
@@ -51,9 +58,21 @@ using UnityEngine;
                 animator.SetInteger("Bat states", 1);
                 AgroMode = false;
             }
-        }
+            if (playerX > transform.position.x)
+            {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, -15f);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 15f);
+            }
 
-        public void attacked()
+        }   
+
+ 
+
+
+    public void attacked()
         {
             Player.HelthPoint -= Damage;
         }
@@ -65,4 +84,5 @@ using UnityEngine;
                 attacked();
             }
         }
+        
     }

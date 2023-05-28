@@ -19,7 +19,6 @@ public class TargetHuman : MonoBehaviour
     public void TakeDamage(int Damage)
     {
         HP -= Damage;
-        Debug.Log("υσι");
     }
 
     private void Update()

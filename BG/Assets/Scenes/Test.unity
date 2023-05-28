@@ -468,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 15
   HP: 20
-  speed: 0.7
+  speed: 0.1
   agrodistance: 0
 --- !u!4 &1867113792
 Transform:

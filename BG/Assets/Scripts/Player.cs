@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(HelthPoint);
+        //Debug.Log(HelthPoint);
         if (HelthPoint <= 0)
         {
             Debug.Log("ÒÛÑÄÎÕÍÀÕÓÉ");
