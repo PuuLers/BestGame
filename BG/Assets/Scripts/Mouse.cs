@@ -1,9 +1,6 @@
-using Microsoft.Cci;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using static UnityEditor.VersionControl.Asset;
 
 public class Mouse : MonoBehaviour
 {
@@ -15,7 +12,6 @@ public class Mouse : MonoBehaviour
     private Animator animator;
     private bool AgroMode = true;
     public float attackRate = 1.0f;
-    public float attackDamage = 10.0f;
     private bool canAttack = true;
     private float timer = 0.0f;
 

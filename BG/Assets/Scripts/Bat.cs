@@ -13,7 +13,6 @@ using UnityEngine;
         private Animator animator;
         private bool AgroMode = true;
         public float attackRate = 1.0f;
-        public float attackDamage = 10.0f;
         private bool canAttack = true;
         private float timer = 0.0f;
 
@@ -71,29 +70,29 @@ using UnityEngine;
                 transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 15f);
             }
 
-        if (canAttack)
-        {
-            Attack();
-            timer = 0.0f;
-            canAttack = false;
+            if (canAttack)
             {
-                timer += Time.deltaTime;
-                if (timer >= attackRate)
+                Attack();
+                timer = 0.0f;
+                canAttack = false;
                 {
+                   timer += Time.deltaTime;
+                    if (timer >= attackRate)
+                    {
                     canAttack = true;
-                }
+                    }
             }
+            }
+
         }
 
-    }
 
+        public void Attack()
+        {
+            Player.HelthPoint -= Damage;
+        }
 
-    public void Attack()
-    {
-        Player.HelthPoint -= Damage;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.tag == "Player")
             {
@@ -101,4 +100,5 @@ using UnityEngine;
             }
         }
         
+
     }
