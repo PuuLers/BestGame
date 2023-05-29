@@ -7,7 +7,6 @@ using UnityEngine;
         public int Damage = 15;
         public int HP = 20;
         private Transform player;
-        private float playerX;
         public float speed;
         public float agrodistance;
         private Animator animator;
@@ -16,7 +15,7 @@ using UnityEngine;
         private bool canAttack = true;
         private float timer = 0.0f;
 
-    public void TakeDamage(int Damage)
+        public void TakeDamage(int Damage)
         {
             HP -= Damage;
         }
@@ -24,18 +23,16 @@ using UnityEngine;
 
         private void Move()
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
-            Vector3 LocalScale = Vector3.one;
-            if (transform.position.x > player.position.x)
-            {
-                LocalScale.x = LocalScale.x * 1;
-            }
-            else
-            {
-                LocalScale.x = LocalScale.x * -1;
-            }
-            transform.localScale = LocalScale;
-        }
+          transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
+          if (player.position.x > transform.position.x)
+          {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, -15f);
+          }
+          else
+          {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 15f);
+          }
+        }  
 
 
         void Start()
@@ -44,14 +41,8 @@ using UnityEngine;
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         }
 
-        private void FindPlayerPositionX() 
-        {
-            playerX = GameObject.Find("Player").transform.position.x;
-        }
-
         void Update()
         {
-            FindPlayerPositionX();
             if (AgroMode == true)
             {
                 Move();
@@ -61,19 +52,10 @@ using UnityEngine;
                 animator.SetInteger("Bat states", 1);
                 AgroMode = false;
             }
-            if (playerX > transform.position.x)
-            {
-                transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, -15f);
-            }
-            else
-            {
-                transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 15f);
-            }
-
             if (canAttack)
             {
                 Attack();
-                timer = 0.0f;
+                timer = 0.2f;
                 canAttack = false;
                 {
                    timer += Time.deltaTime;
@@ -81,7 +63,7 @@ using UnityEngine;
                     {
                     canAttack = true;
                     }
-            }
+                }   
             }
 
         }
