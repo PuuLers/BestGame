@@ -135,7 +135,9 @@ MonoBehaviour:
   Damage: 10
   HP: 10
   speed: 0.5
-  agrodistance: 30
+  agrodistance: 15
+  distance: 0
+  attackRate: 1
 --- !u!95 &7591333913916647043
 Animator:
   serializedVersion: 5

@@ -8,7 +8,6 @@ public class AK : MonoBehaviour
     public float offset;
     public GameObject bullet;
     public Transform shotPoint;
-
     private float Reload;
     public float startTimeBtwShots;
     public Animator animator;
@@ -53,7 +52,7 @@ public class AK : MonoBehaviour
         {
             Reload -= Time.deltaTime;
         }
-      
+        
             
     }
 }

@@ -50,7 +50,7 @@ MonoBehaviour:
   Damage: 15
   HP: 20
   speed: 0.6
-  agrodistance: 0
+  agrodistance: 15
   attackRate: 1
 --- !u!95 &7744018054365315423
 Animator:

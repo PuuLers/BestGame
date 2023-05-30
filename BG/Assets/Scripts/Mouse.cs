@@ -9,8 +9,9 @@ public class Mouse : MonoBehaviour
     private Transform player;
     public float speed;
     public float agrodistance;
+    public float distance;
     private Animator animator;
-    private bool AgroMode = true;
+    private bool AgroMode = false;
     public float attackRate = 1.0f;
     private bool canAttack = true;
     private float timer = 0.0f;
@@ -45,7 +46,9 @@ public class Mouse : MonoBehaviour
 
     void Update()
     {
-       if (AgroMode == true)
+        DistanceCheck();
+        
+        if (AgroMode == true)
         {
             Move();
         }
@@ -53,6 +56,7 @@ public class Mouse : MonoBehaviour
         {
             animator.SetInteger("Mouse states", 1);
             AgroMode = false;
+            agrodistance = 0;
         }
         if (canAttack)
         {
@@ -67,6 +71,7 @@ public class Mouse : MonoBehaviour
             }
           }
         }
+        
 
     }
 
@@ -82,4 +87,17 @@ public class Mouse : MonoBehaviour
             Attack();
         }
     }
+    
+    public void DistanceCheck()
+    {
+        distance = Vector3.Distance(player.position, transform.position);
+        if (distance < agrodistance)
+        {
+            AgroMode = true;
+        }
+        else
+        {
+            AgroMode = false;
+        }
+    }        
 }

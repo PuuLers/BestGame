@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
     public class Bat : MonoBehaviour
@@ -9,6 +10,7 @@ using UnityEngine;
         private Transform player;
         public float speed;
         public float agrodistance;
+        public float distance;
         private Animator animator;
         private bool AgroMode = true;
         public float attackRate = 1.0f;
@@ -43,6 +45,7 @@ using UnityEngine;
 
         void Update()
         {
+            DistanceCheck();
             if (AgroMode == true)
             {
                 Move();
@@ -51,6 +54,7 @@ using UnityEngine;
             {
                 animator.SetInteger("Bat states", 1);
                 AgroMode = false;
+                agrodistance = 0;
             }
             if (canAttack)
             {
@@ -81,6 +85,17 @@ using UnityEngine;
                 Attack();
             }
         }
-        
+        public void DistanceCheck()
+        {
+            distance = Vector3.Distance(player.position, transform.position);
+            if (distance < agrodistance)
+            {
+                AgroMode = true;
+            }
+            else
+            {
+                AgroMode = false;
+            }
+        }
 
-    }
+    }   
