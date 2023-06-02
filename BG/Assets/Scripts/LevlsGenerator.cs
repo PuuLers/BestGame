@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Generator : MonoBehaviour
+public class LevlsGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject Cell;
     [SerializeField] private Transform Zero;
