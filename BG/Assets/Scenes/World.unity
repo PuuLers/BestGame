@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -174,7 +174,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 0.00001
   orthographic: 1
   orthographic size: 5
   m_Depth: -1
@@ -216,9 +216,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1056018299}
-  - component: {fileID: 1056018300}
+  - component: {fileID: 1056018301}
   m_Layer: 0
-  m_Name: LevlsGenerator
+  m_Name: WallsGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,7 +239,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1056018300
+--- !u!114 &1056018301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,10 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0795d8261ed0ab045af858262f8d581e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cell: {fileID: 3571579969488301929, guid: ef012a87e3669ac44bfc8de0c72732cb, type: 3}
-  Zero: {fileID: 1056018299}
-  Widgh: 0
-  Height: 0
+  PrefabCell: {fileID: 8600821900421003681, guid: 801ad1d71d0049d42a6664e2d8f2654b, type: 3}
 --- !u!1 &2080717796
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,12 +281,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581b9e34231172d4a98eeed96302f050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberObject: 20
+  numberObject: 10
   objects:
-  - {fileID: 5228514873463293395, guid: a79095937db66cd439df148e8865d75c, type: 3}
-  - {fileID: 7247024629694364578, guid: de1f7f8e0164b8c4fa9ce06f2ef30b51, type: 3}
-  - {fileID: 3225238263092790099, guid: 1cf1b37eb3cfeae45bf4d9b2f241e84d, type: 3}
-  - {fileID: 3707568713656687632, guid: d1a988ad7f14ae945a0b3faee4d86480, type: 3}
+  - {fileID: 7190946464524174517, guid: 80acd8a5884166b409f19420a0d120af, type: 3}
+  - {fileID: 2518340798518398020, guid: 592a03ef9abeaf64dabd3bbe9ac60026, type: 3}
+  - {fileID: 5942609003724095542, guid: d43451731020ea1409a024680e2d8d42, type: 3}
+  - {fileID: 240018669105094177, guid: 4f9f9e4554bb3ab4bb04502171f77d0f, type: 3}
+  - {fileID: 6852615338586913759, guid: 549e1ca6e42ac104c9b22a297d865320, type: 3}
+  - {fileID: 4452568673044983106, guid: 4c851d1142ed6764cb00d4f427a72b5b, type: 3}
+  - {fileID: 2973859577633890103, guid: 57ed2363bd67a3343bbe75f197cf6038, type: 3}
+  - {fileID: 339224866684233168, guid: 1e067623a79e97d4983f0cf5906ff9bf, type: 3}
+  - {fileID: 88053773572385303, guid: 04e9856d184a0b143936536fce773407, type: 3}
   minRange: -10
   maxRange: 10
 --- !u!4 &2080717798
