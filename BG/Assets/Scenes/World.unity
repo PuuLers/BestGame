@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581b9e34231172d4a98eeed96302f050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberObject: 10
+  numberObject: 0
   objects:
   - {fileID: 7190946464524174517, guid: 80acd8a5884166b409f19420a0d120af, type: 3}
   - {fileID: 2518340798518398020, guid: 592a03ef9abeaf64dabd3bbe9ac60026, type: 3}

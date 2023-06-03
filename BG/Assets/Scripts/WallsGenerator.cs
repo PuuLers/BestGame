@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WallsGeneratorCell
 {
-    public int X = 20;
-    public int Y = 20;
+    public int X;
+    public int Y;
 
     public bool WallLeftl = true;
     public bool WallDown = true;
@@ -15,8 +15,8 @@ public class WallsGeneratorCell
 
 public class WallsGenerator 
 {
-    public int Width;
-    public int Heigth;
+    public int Width = 20;
+    public int Heigth = 20;
 
     public WallsGeneratorCell[,] Generate()
     {
@@ -24,9 +24,9 @@ public class WallsGenerator
 
         for (int x = 0; x < Walls.GetLength(0); x++)
         {
-            for (int y = 0; y < Walls.GetLength(0); y++)
+            for (int y = 0; y < Walls.GetLength(1); y++)
             {
-                Walls[x, y] = new WallsGeneratorCell { X = x, Y = y };
+                Walls[x, y] = new WallsGeneratorCell { X = x, Y = y};
             }
 
         }
