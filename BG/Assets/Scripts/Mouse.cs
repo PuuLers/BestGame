@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Mouse : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class Mouse : MonoBehaviour
 
     private void Move()
     {
+
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
         Vector3 LocalScale = Vector3.one;
         if (transform.position.x > player.position.x)
@@ -41,13 +43,13 @@ public class Mouse : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        player  = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void Update()
     {
         DistanceCheck();
-        
+
         if (AgroMode == true)
         {
             Move();
@@ -62,17 +64,15 @@ public class Mouse : MonoBehaviour
         {
             Attack();
             timer = 0.0f;
-            canAttack = false; 
-          {
-            timer += Time.deltaTime;
-            if (timer >= attackRate)
+            canAttack = false;
             {
-                canAttack = true;
+                timer += Time.deltaTime;
+                if (timer >= attackRate)
+                {
+                    canAttack = true;
+                }
             }
-          }
         }
-        
-
     }
 
     public void Attack()
@@ -87,17 +87,24 @@ public class Mouse : MonoBehaviour
             Attack();
         }
     }
-    
+
     public void DistanceCheck()
     {
         distance = Vector3.Distance(player.position, transform.position);
-        if (distance < agrodistance)
+        Vector2 direction = player.position - transform.position;
+        RaycastHit2D hit;
+        hit = Physics2D.Raycast(player.position, direction);
+    
+        if (distance < agrodistance && hit.collider == null)
         {
             AgroMode = true;
         }
-        else
+        if (hit.collider != null)
         {
-            AgroMode = false;
+            if (hit.collider.gameObject.tag == "Wall")
+            {
+                AgroMode = false;
+            }
         }
     }        
 }

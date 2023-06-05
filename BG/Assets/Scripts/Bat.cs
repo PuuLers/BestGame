@@ -88,14 +88,21 @@ using UnityEngine;
         public void DistanceCheck()
         {
             distance = Vector3.Distance(player.position, transform.position);
-            if (distance < agrodistance)
+            Vector2 direction = player.position - transform.position;
+            RaycastHit2D hit;
+            hit = Physics2D.Raycast(player.position, direction);
+
+            if (distance < agrodistance && hit.collider == null)
             {
                 AgroMode = true;
             }
-            else
+            if (hit.collider != null)
             {
-                AgroMode = false;
-            }
+                if (hit.collider.gameObject.tag == "Wall")
+                {
+                    AgroMode = false;
+                }
+            }   
         }
 
     }   

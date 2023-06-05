@@ -8,6 +8,7 @@ TagManager:
   - Mouse
   - TargetHuman
   - Bat
+  - Wall
   layers:
   - Default
   - TransparentFX
