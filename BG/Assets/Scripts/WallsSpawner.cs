@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class WallsSpawner : MonoBehaviour
 {
-    public GameObject PrefabCell;
+    [SerializeField]public GameObject PrefabCell;
 
-
+    //хуй я клал
 
     private void Start()
     {
@@ -18,8 +18,8 @@ public class WallsSpawner : MonoBehaviour
         {
             for (int y = 0; y < Walls.GetLength(1); y++)
             {
-                Cell c = Instantiate(PrefabCell, new Vector2(x, y), Quaternion.identity).GetComponent <Cell>();
-                c.Wallleft.SetActive(Walls[x, y].Wallleft);
+                Cell c = Instantiate(PrefabCell, new Vector2(x, y), Quaternion.identity).GetComponent<Cell>();
+                c.Wallleft.SetActive(Walls[x, y].WallLeft);
                 c.WallDown.SetActive(Walls[x, y].WallDown);
             }
 
