@@ -85,24 +85,17 @@ using UnityEngine;
                 Attack();
             }
         }
-        public void DistanceCheck()
+    public void DistanceCheck()
+    {
+        distance = Vector3.Distance(player.position, transform.position);
+        if (distance < agrodistance)
         {
-            distance = Vector3.Distance(player.position, transform.position);
-            Vector2 direction = player.position - transform.position;
-            RaycastHit2D hit;
-            hit = Physics2D.Raycast(player.position, direction);
-
-            if (distance < agrodistance && hit.collider == null)
-            {
-                AgroMode = true;
-            }
-            if (hit.collider != null)
-            {
-                if (hit.collider.gameObject.tag == "Wall")
-                {
-                    AgroMode = false;
-                }
-            }   
+            AgroMode = true;
         }
+        else
+        {
+            AgroMode = false;
+        }
+    }
 
-    }   
+}   
