@@ -9,6 +9,7 @@ public class projectileSphere : MonoBehaviour
     private float fireCooldown = 0f;
     private Animator animator;
     private Transform player;
+    public float agrodistance;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -22,7 +23,6 @@ public class projectileSphere : MonoBehaviour
             float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
             if (distanceToPlayer <= agrodistance)
             {
-                Instantiate(projectileSp, projectileSpawnPoint.position, transform.rotation);
                 fireCooldown = 1f / fireRate;
             }
         }
