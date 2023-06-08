@@ -9,7 +9,8 @@ TagManager:
   - TargetHuman
   - Bat
   - Wall
-  - Slime
+  - Slug
+  - projectileSlug
   layers:
   - Default
   - TransparentFX

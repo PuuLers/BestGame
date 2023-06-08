@@ -12,8 +12,6 @@ public class Player : MonoBehaviour
     private Animator anim;
 
 
-
-
     public void Hit()
     {
         anim.SetBool("Player hit", true);
@@ -47,6 +45,10 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Rigidbody.MovePosition(Rigidbody.position + MoveVector * Speed * Time.fixedDeltaTime);
+    }
+    public void TakeDamage(int Damage)
+    {
+        HelthPoint -= Damage;
     }
 
 

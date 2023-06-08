@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Slug : MonoBehaviour
 {
@@ -13,13 +14,12 @@ public class Slug : MonoBehaviour
     private Animator animator;
     private bool AgroMode = false;
     public float attackRate = 1.0f;
-    private bool canAttack = true;
-    private float timer = 0.0f;
-    public float offset;
-    public GameObject sphere;
-    public Transform shotPoint;
     public float startTimeBtwShots;
-    private float Reload;
+    public GameObject projectileSlug;
+    public Transform projectileSpawnPoint;
+    public float fireRate = 1f;
+    private float fireCooldown = 0f;
+    public float bulletSpeed = 50;
 
     public void TakeDamage(int Damage)
     {
@@ -32,11 +32,11 @@ public class Slug : MonoBehaviour
         Vector3 LocalScale = Vector3.one;
         if (transform.position.x > player.position.x)
         {
-            LocalScale.x = LocalScale.x * 1;
+            LocalScale.x = LocalScale.x * -1;
         }
         else
         {
-            LocalScale.x = LocalScale.x * -1;
+            LocalScale.x = LocalScale.x * 1;
         }
         transform.localScale = LocalScale;
     }
@@ -55,44 +55,33 @@ public class Slug : MonoBehaviour
         if (AgroMode == true)
         {
             Move();
+            CloseAttack();
+            LrAttack();
         }
         if (HP <= 0)
         {
-            animator.SetInteger("Slime states", 1);
+            animator.SetInteger("Slug states", 1);
             AgroMode = false;
             agrodistance = 0;
         }
-        if (canAttack)
-        {
-            Attack();
-            timer = 0.0f;
-            canAttack = false;
-            {
-                timer += Time.deltaTime;
-                if (timer >= attackRate)
-                {
-                    canAttack = true;
-                }
-            }
-        }
     }
 
-    public void Attack()
+    public void CloseAttack()
     {
         Player.HelthPoint -= Damage;
     }
-    private void Fire()
+
+    public void LrAttack()
     {
-        Instantiate(sphere, shotPoint.position, transform.rotation);
-        Reload = startTimeBtwShots;
-        animator.Play("shoot");
+       Instantiate(projectileSlug, projectileSpawnPoint.position, transform.rotation);
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Attack();
+            CloseAttack();
         }
     }
 
