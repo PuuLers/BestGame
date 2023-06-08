@@ -1,89 +1,32 @@
-using System;
+using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallsGeneratorCell
+public class WallsGenerator : MonoBehaviour
 {
-    public int X;
-    public int Y;
+    public GameObject[] Room;
+    public Transform Zero;
+    public int Height, Width;
 
-    public bool WallLeft = true;
-    public bool WallDown = true;
-
-    public bool vesited = false;
-}
-
-
-
-public class WallsGenerator
-{
-    public int Width = 20;
-    public int Heigth = 20;
-
-    public WallsGeneratorCell[,] Generate()
+    void Start()
     {
-        WallsGeneratorCell[,] Walls = new WallsGeneratorCell[Width, Heigth];
-
-        for (int x = 0; x < Walls.GetLength(0); x++)
-        {
-            for (int y = 0; y < Walls.GetLength(1); y++)
-            {
-                Walls[x, y] = new WallsGeneratorCell { X = x, Y = y };
-            }
-
-        }
-
-        RemoveWallsWithBackTrecer(Walls);
-
-        return Walls;
+        Generate();
     }
 
-
-    private void RemoveWallsWithBackTrecer(WallsGeneratorCell[,] Walls)
+    public void Generate()
     {
-        WallsGeneratorCell current = Walls[0, 0];
-        current.vesited = true;
-        Stack<WallsGeneratorCell> stack = new Stack<WallsGeneratorCell>();
-        do
+        for (int x = 0; x < Width; x++)
         {
-            List<WallsGeneratorCell> unvisitedNeighbourse = new List<WallsGeneratorCell>();
-
-            int X = current.X;
-            int Y = current.Y;
-
-            if (X > 0 && !Walls[X - 1, Y].vesited) unvisitedNeighbourse.Add(Walls[X - 1, Y]);
-            if (X > 0 && !Walls[X, Y - 1].vesited) unvisitedNeighbourse.Add(Walls[X, Y - 1]);
-            if (X < Width - 2 && !Walls[X + 1, Y].vesited) unvisitedNeighbourse.Add(Walls[X + 1, Y]);
-            if (X < Width - 2 && !Walls[X, Y + 1].vesited) unvisitedNeighbourse.Add(Walls[X, Y + 1]);
-
-            if (unvisitedNeighbourse.Count > 0)
+            int randX = Random.Range(0, Room.Length);
+            var cellX = Instantiate(Room[randX], Zero);
+            cellX.transform.localPosition = new Vector3(x * 8, 0, 0);
+            for (int y = 1; y < Height; y++)
             {
-                WallsGeneratorCell chosen = unvisitedNeighbourse[UnityEngine.Random.Range(0, unvisitedNeighbourse.Count)];
-                RemoveWall(current, chosen);
-                chosen.vesited = true;
-                current = chosen;
-                stack.Push(chosen);
+                int randY = Random.Range(0, Room.Length);
+                var cellY = Instantiate(Room[randY], Zero);
+                cellY.transform.localPosition = new Vector3(x * 8, y * 8, 0);
             }
-            else
-            {
-                current = stack.Pop();
-            }
-
-        } while (stack.Count > 0);
-    }
-    private void RemoveWall(WallsGeneratorCell a, WallsGeneratorCell b)
-    {
-        if (a.X == b.X)
-        {
-            if (a.Y == b.Y) a.WallLeft = false;
-            else b.WallLeft = false;
-        }
-        else
-        {
-            if (a.X == b.X) a.WallLeft = false;
-            else b.WallLeft = false;
         }
     }
-
 }
