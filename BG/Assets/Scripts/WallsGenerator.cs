@@ -8,6 +8,8 @@ public class WallsGenerator : MonoBehaviour
     public GameObject[] Room;
     public Transform Zero;
     public int Height, Width;
+    public int prefX;
+    public int prefY;
 
     void Start()
     {
@@ -20,12 +22,12 @@ public class WallsGenerator : MonoBehaviour
         {
             int randX = Random.Range(0, Room.Length);
             var cellX = Instantiate(Room[randX], Zero);
-            cellX.transform.localPosition = new Vector3(x * 8, 0, 0);
+            cellX.transform.localPosition = new Vector3(x * prefX, 0, 0);
             for (int y = 1; y < Height; y++)
             {
                 int randY = Random.Range(0, Room.Length);
                 var cellY = Instantiate(Room[randY], Zero);
-                cellY.transform.localPosition = new Vector3(x * 8, y * 8, 0);
+                cellY.transform.localPosition = new Vector3(x * prefY, y * prefY, 0);
             }
         }
     }
