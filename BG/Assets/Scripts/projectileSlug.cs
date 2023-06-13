@@ -11,16 +11,11 @@ public class projectileSlug : MonoBehaviour
     public LayerMask WhatIsSolid;
     public float distanse;
     public GameObject Slug;
-    private Transform player;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        Vector3 direction = player.position - transform.position;
-        Vector3 lookAtDirection = new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90);
-        transform.rotation = Quaternion.Euler(lookAtDirection);
-    }
-
+    }  
+ 
     private void Update()
     {
         RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.right, distanse, WhatIsSolid);
@@ -38,10 +33,8 @@ public class projectileSlug : MonoBehaviour
             Destroy(gameObject);
         }
         transform.Translate(Vector2.right * Speed * Time.deltaTime);
-        
-    }
-
-
+      
+    }    
 
 
 

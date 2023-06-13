@@ -14,8 +14,7 @@ public class Mouse : MonoBehaviour
     private Animator animator;
     private bool AgroMode = false;
     public float attackRate = 1.0f;
-    private bool canAttack = true;
-    private float timer = 0.0f;
+    private bool isAttacking = false;
 
     public void TakeDamage(int Damage)
     {
@@ -53,6 +52,17 @@ public class Mouse : MonoBehaviour
         if (AgroMode == true)
         {
             Move();
+            if (!isAttacking)
+            {
+                StartCoroutine(AttackDelay());
+            }
+            IEnumerator AttackDelay()
+            {
+                isAttacking = true;
+                yield return new WaitForSeconds(attackRate);
+                Attack();
+                isAttacking = false;
+            }
         }
         if (HP <= 0)
         {
@@ -60,19 +70,7 @@ public class Mouse : MonoBehaviour
             AgroMode = false;
             agrodistance = 0;
         }
-        if (canAttack)
-        {
-            Attack();
-            timer = 0.0f;
-            canAttack = false;
-            {
-                timer += Time.deltaTime;
-                if (timer >= attackRate)
-                {
-                    canAttack = true;
-                }
-            }
-        }
+        
     }
 
     public void Attack()

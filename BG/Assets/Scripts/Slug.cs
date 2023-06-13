@@ -13,13 +13,13 @@ public class Slug : MonoBehaviour
     public float distance;
     private Animator animator;
     private bool AgroMode = false;
-    public float attackRate = 1.0f;
     public float startTimeBtwShots;
     public GameObject projectileSlug;
-    public Transform projectileSpawnPoint;
-    public float fireRate = 1f;
-    private float fireCooldown = 0f;
+    private float fireCooldown = 0.6f;
     public float bulletSpeed = 50;
+    public Transform shotPoint;
+    private bool isAttacking = false;
+    
 
     public void TakeDamage(int Damage)
     {
@@ -56,7 +56,17 @@ public class Slug : MonoBehaviour
         {
             Move();
             CloseAttack();
-            LrAttack();
+            if (!isAttacking)
+            {
+                StartCoroutine(AttackDelay());
+            }
+            IEnumerator AttackDelay()
+            {
+                isAttacking = true;
+                yield return new WaitForSeconds(fireCooldown);
+                LrAttack();
+                isAttacking = false;
+            }
         }
         if (HP <= 0)
         {
@@ -73,7 +83,12 @@ public class Slug : MonoBehaviour
 
     public void LrAttack()
     {
-       Instantiate(projectileSlug, projectileSpawnPoint.position, transform.rotation);
+       Vector2 direction = player.position - transform.position;
+       shotPoint.right = direction;
+       GameObject bullet = Instantiate(projectileSlug, shotPoint.position, Quaternion.identity);
+       bullet.transform.right = direction;  
+       Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+       bulletRigidbody.velocity = direction.normalized * bulletSpeed;
     }
 
 
