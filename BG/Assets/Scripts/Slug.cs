@@ -19,7 +19,10 @@ public class Slug : MonoBehaviour
     public float bulletSpeed = 50;
     public Transform shotPoint;
     private bool isAttacking = false;
-    
+    public float raycastDistance = 10f;
+    public float attackDelay = 2f;
+    private float nextAttackTime = 0f;
+
 
     public void TakeDamage(int Damage)
     {
@@ -55,7 +58,7 @@ public class Slug : MonoBehaviour
         if (AgroMode == true)
         {
             Move();
-            CloseAttack();
+            closeAttack();
             if (!isAttacking)
             {
                 StartCoroutine(AttackDelay());
@@ -76,9 +79,23 @@ public class Slug : MonoBehaviour
         }
     }
 
-    public void CloseAttack()
+    public void closeAttack()
     {
-        Player.HelthPoint -= Damage;
+        Vector2 raycastOrigin = transform.position;
+        Vector2 raycastDirection = transform.right;
+        RaycastHit2D hitinfo = Physics2D.Raycast(raycastOrigin, raycastDirection, raycastDistance);
+        if (hitinfo.collider != null)
+        {
+            if (hitinfo.collider.CompareTag("Player"))
+            {
+                if (Time.time > nextAttackTime)
+                {
+                    Player.HelthPoint -= Damage;
+                    nextAttackTime = Time.time + attackDelay;
+                }
+            }
+        }
+
     }
 
     public void LrAttack()
@@ -91,14 +108,6 @@ public class Slug : MonoBehaviour
        bulletRigidbody.velocity = direction.normalized * bulletSpeed;
     }
 
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            CloseAttack();
-        }
-    }
 
     public void DistanceCheck()
     {

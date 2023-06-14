@@ -11,11 +11,13 @@ public class projectileSlug : MonoBehaviour
     public LayerMask WhatIsSolid;
     public float distanse;
     public GameObject Slug;
+    private float projectileLifetime = 2f;
 
     private void Start()
-    {
-    }  
- 
+    { 
+        Destroy(gameObject, projectileLifetime);
+    }
+
     private void Update()
     {
         RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.right, distanse, WhatIsSolid);

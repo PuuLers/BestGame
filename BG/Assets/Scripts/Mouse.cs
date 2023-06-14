@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -13,8 +15,11 @@ public class Mouse : MonoBehaviour
     public float distance;
     private Animator animator;
     private bool AgroMode = false;
-    public float attackRate = 1.0f;
-    private bool isAttacking = false;
+    public float raycastDistance = 10f;
+    public float attackDelay = 2f; 
+    private float nextAttackTime = 0f;
+
+
 
     public void TakeDamage(int Damage)
     {
@@ -24,7 +29,6 @@ public class Mouse : MonoBehaviour
 
     private void Move()
     {
-
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
         Vector3 LocalScale = Vector3.one;
         if (transform.position.x > player.position.x)
@@ -52,17 +56,7 @@ public class Mouse : MonoBehaviour
         if (AgroMode == true)
         {
             Move();
-            if (!isAttacking)
-            {
-                StartCoroutine(AttackDelay());
-            }
-            IEnumerator AttackDelay()
-            {
-                isAttacking = true;
-                yield return new WaitForSeconds(attackRate);
-                Attack();
-                isAttacking = false;
-            }
+            Attack();
         }
         if (HP <= 0)
         {
@@ -75,16 +69,23 @@ public class Mouse : MonoBehaviour
 
     public void Attack()
     {
-        Player.HelthPoint -= Damage;
+        Vector2 raycastOrigin = transform.position;
+        Vector2 raycastDirection = transform.right;
+        RaycastHit2D hitinfo = Physics2D.Raycast(raycastOrigin, raycastDirection, raycastDistance);
+        if (hitinfo.collider != null)
+        {
+            if (hitinfo.collider.CompareTag("Player"))
+            {
+                if (Time.time > nextAttackTime)
+                {
+                    Player.HelthPoint -= Damage;
+                    nextAttackTime = Time.time + attackDelay;
+                }
+            }
+        }
+
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Attack();
-        }
-    }
 
     public void DistanceCheck()
     {

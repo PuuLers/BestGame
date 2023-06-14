@@ -13,11 +13,11 @@ using UnityEngine;
         public float distance;
         private Animator animator;
         private bool AgroMode = true;
-        public float attackRate = 1.0f;
-        private bool canAttack = true;
-        private float timer = 0.0f;
+        public float raycastDistance = 10f;
+        public float attackDelay = 2f;
+        private float nextAttackTime = 0f;
 
-        public void TakeDamage(int Damage)
+    public void TakeDamage(int Damage)
         {
             HP -= Damage;
         }
@@ -49,6 +49,7 @@ using UnityEngine;
             if (AgroMode == true)
             {
                 Move();
+                Attack();               
             }
             if (HP <= 0)
             {
@@ -56,35 +57,28 @@ using UnityEngine;
                 AgroMode = false;
                 agrodistance = 0;
             }
-            if (canAttack)
+        }
+
+
+    public void Attack()
+    {
+        Vector2 raycastOrigin = transform.position;
+        Vector2 raycastDirection = transform.right;
+        RaycastHit2D hitinfo = Physics2D.Raycast(raycastOrigin, raycastDirection, raycastDistance);
+        if (hitinfo.collider != null)
+        {
+            if (hitinfo.collider.CompareTag("Player"))
             {
-                Attack();
-                timer = 0.2f;
-                canAttack = false;
+                if (Time.time > nextAttackTime)
                 {
-                   timer += Time.deltaTime;
-                    if (timer >= attackRate)
-                    {
-                    canAttack = true;
-                    }
-                }   
-            }
-
-        }
-
-
-        public void Attack()
-        {
-            Player.HelthPoint -= Damage;
-        }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject.tag == "Player")
-            {
-                Attack();
+                    Player.HelthPoint -= Damage;
+                    nextAttackTime = Time.time + attackDelay;
+                }
             }
         }
+
+    }
+
     public void DistanceCheck()
     {
         distance = Vector3.Distance(player.position, transform.position);

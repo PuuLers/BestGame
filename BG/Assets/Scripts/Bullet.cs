@@ -9,11 +9,11 @@ public class Bullet : MonoBehaviour
     public float Speed;
     public static int Damage;
     public LayerMask WhatIsSolid;
-    public float distanse;
+    public float distance;
 
     private void Update()
     {
-        RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.right, distanse, WhatIsSolid);
+        RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.right, distance, WhatIsSolid);
         if (hitinfo.collider != null)
         {
             if (hitinfo.collider.CompareTag("TargetHuman"))
