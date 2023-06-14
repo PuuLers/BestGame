@@ -238,8 +238,8 @@ MonoBehaviour:
   - {fileID: 6885978362655346566, guid: f0483c13abaf813438a7560b5d96cdde, type: 3}
   - {fileID: 278797179987376230, guid: d43959b4f5831b54993d3a885c20a545, type: 3}
   Zero: {fileID: 1051143278}
-  Height: 50
-  Width: 50
+  Height: 10
+  Width: 10
   prefX: 16
   prefY: 16
 --- !u!1 &2080717796
