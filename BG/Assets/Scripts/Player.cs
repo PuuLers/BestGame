@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     
-    static public int HelthPoint = 100;
+    static public int HealthPoint = 100;
     public float Speed = 10f;
     private Rigidbody2D Rigidbody;
     private Vector2 MoveVector;
@@ -24,8 +24,8 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(HelthPoint);
-        if (HelthPoint <= 0)
+        Debug.Log(HealthPoint);
+        if (HealthPoint <= 0)
         {
             Debug.Log("ÒÛÑÄÎÕÍÀÕÓÉ");
         }
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
     }
     public void TakeDamage(int Damage)
     {
-        HelthPoint -= Damage;
+        HealthPoint -= Damage;
     }
 
 

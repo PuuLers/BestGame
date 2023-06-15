@@ -77,7 +77,7 @@ public class Mouse : MonoBehaviour
             {
                 if (Time.time > nextAttackTime)
                 {
-                    Player.HelthPoint -= Damage;
+                    Player.HealthPoint -= Damage;
                     nextAttackTime = Time.time + attackDelay;
                 }
             }
