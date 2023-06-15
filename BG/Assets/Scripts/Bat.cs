@@ -17,7 +17,7 @@ using UnityEngine;
         public float attackDelay = 2f;
         private float nextAttackTime = 0f;
 
-    public void TakeDamage(int Damage)
+        public void TakeDamage(int Damage)
         {
             HP -= Damage;
         }

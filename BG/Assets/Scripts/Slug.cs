@@ -16,7 +16,7 @@ public class Slug : MonoBehaviour
     public float startTimeBtwShots;
     public GameObject projectileSlug;
     private float fireCooldown = 0.6f;
-    public float bulletSpeed = 50;
+    public float bulletSpeed;
     public Transform shotPoint;
     private bool isAttacking = false;
     public float raycastDistance = 10f;

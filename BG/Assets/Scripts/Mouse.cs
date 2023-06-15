@@ -52,7 +52,6 @@ public class Mouse : MonoBehaviour
     void Update()
     {
         DistanceCheck();
-
         if (AgroMode == true)
         {
             Move();
