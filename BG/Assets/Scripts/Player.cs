@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D Rigidbody;
     private Vector2 MoveVector;
     private Animator anim;
+    public Joystick JoystickMove;
 
 
     public void Hit()
@@ -29,8 +30,8 @@ public class Player : MonoBehaviour
         {
             Debug.Log("ршяднумюуси");
         }
-        MoveVector.x = Input.GetAxisRaw("Horizontal");
-        MoveVector.y = Input.GetAxisRaw("Vertical");
+        MoveVector.x = JoystickMove.Horizontal;
+        MoveVector.y = JoystickMove.Vertical;
 
         if (MoveVector.x != 0 || MoveVector.y != 0)
         {
