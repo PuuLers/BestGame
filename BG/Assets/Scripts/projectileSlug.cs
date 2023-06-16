@@ -15,7 +15,7 @@ public class projectileSlug : MonoBehaviour
 
     private void Start()
     {
-        //Destroy(gameObject, projectileLifetime); сначала я написал сюда. вчера, вроде, все работало, а потом сразу же сломалось
+
     }
 
     private void Update()
@@ -31,11 +31,9 @@ public class projectileSlug : MonoBehaviour
             {
                 Instantiate(Slug);
             }
-
             Destroy(gameObject);
         }
         transform.Translate(Vector2.right * Speed * Time.deltaTime);
-        //Destroy(gameObject, projectileLifetime); потом я попробовал написать сюда, но получилось то же самое
     }
 
 

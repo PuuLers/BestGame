@@ -73,7 +73,7 @@ public class Slug : MonoBehaviour
         }
         if (HP <= 0)
         {
-            //animator.SetInteger("Slug states", 1);
+            animator.SetInteger("Slug states", 1);
             AgroMode = false;
             agrodistance = 0;
         }
