@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,14 +12,14 @@ public class projectileSlug : MonoBehaviour
     public LayerMask WhatIsSolid;
     public float distanse;
     public GameObject Slug;
-    private float projectileLifetime = 2f;
+    //private float projectileLifetime = 2f;
 
-    private void Start()
+    void Start()
     {
 
     }
 
-    private void Update()
+    void Update()
     {
         RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.right, distanse, WhatIsSolid);
         if (hitinfo.collider != null)
@@ -31,10 +32,10 @@ public class projectileSlug : MonoBehaviour
             {
                 Instantiate(Slug);
             }
-            Destroy(gameObject);
         }
         transform.Translate(Vector2.right * Speed * Time.deltaTime);
     }
+    private void OnCollisionEnter2D(UnityEngine.Collision2D collision) => Destroy(gameObject);
 
 
 

@@ -45,13 +45,13 @@ public class Slug : MonoBehaviour
     }
 
 
-    void Start()
+    private void Start()
     {
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    void Update()
+    private void Update()
     {
         DistanceCheck();
 
