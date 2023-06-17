@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -11,6 +12,12 @@ public class Player : MonoBehaviour
     private Vector2 MoveVector;
     private Animator anim;
     public Joystick JoystickMove;
+
+
+    private void PlayerMirror()
+    {
+       
+    }
 
 
     public void Hit()
@@ -32,6 +39,16 @@ public class Player : MonoBehaviour
         }
         MoveVector.x = JoystickMove.Horizontal;
         MoveVector.y = JoystickMove.Vertical;
+        Vector3 LocalScale = Vector3.one;
+        transform.localScale = LocalScale;
+        if (MoveVector.x < 0)
+        {
+            LocalScale.x = LocalScale.x * -1f;
+        }
+        else
+        {
+            LocalScale.x = LocalScale.x * +1f;
+        }
 
         if (MoveVector.x != 0 || MoveVector.y != 0)
         {

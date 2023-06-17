@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class AK : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class AK : MonoBehaviour
     private float Reload;
     public float startTimeBtwShots;
     public Animator animator;
+    public Joystick JoystickMove;
+    private float rotZ;
+   
+
     private void fire()
     {
         Instantiate(bullet, shotPoint.position, transform.rotation);
@@ -19,8 +24,12 @@ public class AK : MonoBehaviour
     }
     private void Update()
     {
-        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float rotZ = Mathf.Atan2(difference.x, difference.y) * Mathf.Rad2Deg;   
+        //Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;    äëÿ ÏÊ
+        if (Mathf.Abs(JoystickMove.Horizontal) > 0.3f || Mathf.Abs(JoystickMove.Vertical) > 0.3f)
+        {
+            rotZ = Mathf.Atan2(JoystickMove.Horizontal, JoystickMove.Vertical) * Mathf.Rad2Deg;
+        }
+       
         transform.rotation = Quaternion.Euler(0f, 0f, -rotZ + offset);
 
         Bullet.Damage = Damage;
@@ -34,11 +43,12 @@ public class AK : MonoBehaviour
         {
             LocalScale.y = LocalScale.y * +1f;
         }
-
         transform.localScale = LocalScale;
+
+
         if (Reload <= 0)
         {
-            if (Input.GetButton("Fire1"))
+            if (JoystickMove.Horizontal != 0 || JoystickMove.Vertical != 0)
             {
                 animator.SetBool("Shoot", true);
                 fire();
@@ -46,6 +56,7 @@ public class AK : MonoBehaviour
             else
             {
                 animator.SetBool("Shoot", false);
+                
             }
         }
         else 

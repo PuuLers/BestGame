@@ -201,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2086.5
+      value: 1897.5
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -402,6 +402,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1562135828899223745, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: offset
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562135828899223745, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: JoystickMove
+      value: 
+      objectReference: {fileID: 1926327939}
+    - target: {fileID: 1562135828899223746, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562135829383424265, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562135829481690325, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.446
+      objectReference: {fileID: 0}
     - target: {fileID: 1562135830907209461, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -644,6 +664,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
   m_PrefabInstance: {fileID: 524018109}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1926327939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  m_PrefabInstance: {fileID: 524018109}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2080717796
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581b9e34231172d4a98eeed96302f050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberObject: 0
+  numberObject: 20
   objects:
   - {fileID: 7190946464524174517, guid: 80acd8a5884166b409f19420a0d120af, type: 3}
   - {fileID: 2518340798518398020, guid: 592a03ef9abeaf64dabd3bbe9ac60026, type: 3}

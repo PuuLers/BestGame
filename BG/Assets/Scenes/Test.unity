@@ -383,6 +383,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3888206987205295633, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
+      propertyPath: m_Radius
+      value: 0.44617054
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888206987205295633, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.037932962
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888206987205295633, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.06689289
+      objectReference: {fileID: 0}
     - target: {fileID: 3888206987205295634, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
       propertyPath: m_Name
       value: Slug
