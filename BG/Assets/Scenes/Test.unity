@@ -250,27 +250,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3888206987205295634, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
   m_PrefabInstance: {fileID: 3888206986029973847}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1242726218
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1242726213}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 09ac6a08ccd97d74c87e0462b19e1822, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1294320463 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4145662466089440504, guid: eff2738fc91972c47a7582eca5d249ca, type: 3}
@@ -340,6 +319,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3888206986145078092, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1739776441, guid: 6d5d5ca171688b749bc6946099db474e, type: 3}
+    - target: {fileID: 3888206986145078093, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888206986145078093, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3888206986145078094, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -351,10 +342,6 @@ PrefabInstance:
     - target: {fileID: 3888206987205295632, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3888206987205295632, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3888206987205295632, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
       propertyPath: m_LocalPosition.x

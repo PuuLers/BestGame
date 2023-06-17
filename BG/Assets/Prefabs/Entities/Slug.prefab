@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 3888206987205295632}
   - component: {fileID: 3888206987205295633}
   - component: {fileID: 3888206987205295647}
+  - component: {fileID: 7287936095752062971}
   m_Layer: 0
   m_Name: Slug
   m_TagString: Slug
@@ -187,3 +188,26 @@ MonoBehaviour:
   projectileSlug: {fileID: 0}
   bulletSpeed: 15
   shotPoint: {fileID: 3888206986828457187}
+  raycastDistance: 10
+  attackDelay: 2
+--- !u!95 &7287936095752062971
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3888206987205295634}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 09ac6a08ccd97d74c87e0462b19e1822, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
