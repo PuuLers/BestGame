@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.PackageManager;
@@ -5,7 +6,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
+    private float NormalizedSpeed;
+    private float ShootingSpeed;
+    static public bool ShootingMode = false;
     static public int HealthPoint = 100;
     public float Speed = 10f;
     private Rigidbody2D Rigidbody;
@@ -23,30 +26,43 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        //инициализация компонентов 
         Rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+        //присвоение знаяений и стабилизация скорости
+        ShootingSpeed = Speed / 2;
+        NormalizedSpeed = Speed;
     }
     void Update()
     {
         Debug.Log(MoveVector.x);
-        if (HealthPoint <= 0)
+        //замедление во время стрельбы
+        if (ShootingMode == true)
         {
-            Debug.Log("ТЫСДОХНАХУЙ");
-        }
-        MoveVector.x = JoystickMove.Horizontal;
-        MoveVector.y = JoystickMove.Vertical;
-      
-        if (MoveVector.x < 0f)
-        {
-            sprite.flipX = true;
+            Speed = ShootingSpeed;
         }
         else
         {
+            Speed = NormalizedSpeed;
+        }
+        //проверка здоровья
+        if (HealthPoint <= 0)
+        {
+            Debug.Log("ТЫ СДОХ НАХУЙ");
+        }
+        //реализация поворота и джостика
+        MoveVector.x = JoystickMove.Horizontal;
+        MoveVector.y = JoystickMove.Vertical;
+        if (MoveVector.x > 0f )
+        {
             sprite.flipX = false;
         }
-
-
+        else if (MoveVector.x < 0f)
+        {
+            sprite.flipX = true;
+        }
+        //анимации
         if (MoveVector.x != 0 || MoveVector.y != 0)
         {
             anim.SetInteger("Players states", 1);

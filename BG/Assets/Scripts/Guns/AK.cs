@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,8 +14,9 @@ public class AK : MonoBehaviour
     public float startTimeBtwShots;
     public Animator animator;
     public Joystick JoystickGun;
-    private float rotZ;
-   
+    static public float rotZ;
+    public float JoystickFireDistance = 0.7f;
+
 
     private void fire()
     {
@@ -33,6 +35,10 @@ public class AK : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, -rotZ + offset);
 
         Bullet.Damage = Damage;
+        Debug.Log(JoystickGun.Horizontal);
+
+
+
 
         Vector3 LocalScale = Vector3.one;
         if (rotZ < 0 || rotZ > 180)
@@ -48,15 +54,16 @@ public class AK : MonoBehaviour
 
         if (Reload <= 0)
         {
-            if (JoystickGun.Horizontal != 0 || JoystickGun.Vertical != 0)
+            if (JoystickGun.Horizontal > JoystickFireDistance || JoystickGun.Horizontal < -JoystickFireDistance || JoystickGun.Vertical > JoystickFireDistance || JoystickGun.Vertical < -JoystickFireDistance)
             {
                 animator.SetBool("Shoot", true);
                 fire();
+                Player.ShootingMode = true;
             }
             else
             {
                 animator.SetBool("Shoot", false);
-                
+                Player.ShootingMode = false;
             }
         }
         else 
