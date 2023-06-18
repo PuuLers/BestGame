@@ -132,9 +132,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 15
-  WhatIsSolid:
+  Damage: 0
+  WhatIsPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   distanse: 0.5
   Slug: {fileID: 0}
 --- !u!58 &4145662466089440486

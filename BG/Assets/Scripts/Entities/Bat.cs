@@ -10,7 +10,7 @@ using UnityEngine;
         private Transform player;
         public float speed;
         public float agrodistance;
-        public float distance;
+        private float distance;
         private Animator animator;
         private bool AgroMode = true;
         public float raycastDistance = 10f;

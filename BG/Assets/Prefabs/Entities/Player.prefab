@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1562135828899223745}
   - component: {fileID: 1562135828899223744}
   - component: {fileID: 1562135828899223747}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1562135829119114701}
   - component: {fileID: 1562135829119114690}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Players_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1562135829264581893}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1562135829481690325}
   - component: {fileID: 1562135829481690346}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Guns_20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 1562135830907209480}
   - component: {fileID: 1562135830907209483}
   - component: {fileID: 1562135830907209482}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 5718855126966530895}
   - component: {fileID: 5562126132030947416}
   - component: {fileID: 4883386542802242963}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

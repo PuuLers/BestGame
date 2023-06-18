@@ -8,8 +8,8 @@ using UnityEngine.UIElements;
 public class projectileSlug : MonoBehaviour
 {
     public float Speed;
-    public static int Damage;
-    public LayerMask WhatIsSolid;
+    public int Damage;
+    public LayerMask WhatIsPlayer;
     public float distanse;
     public GameObject Slug;
     //private float projectileLifetime = 2f;
@@ -21,7 +21,7 @@ public class projectileSlug : MonoBehaviour
 
     void Update()
     {
-        RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.right, distanse, WhatIsSolid);
+        RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.right, distanse, WhatIsPlayer);
         if (hitinfo.collider != null)
         {
             if (hitinfo.collider.CompareTag("Player"))
@@ -32,10 +32,11 @@ public class projectileSlug : MonoBehaviour
             {
                 Instantiate(Slug);
             }
+            Destroy(gameObject);
         }
         transform.Translate(Vector2.right * Speed * Time.deltaTime);
     }
-    private void OnCollisionEnter2D(UnityEngine.Collision2D collision) => Destroy(gameObject);
+    
 
 
 
