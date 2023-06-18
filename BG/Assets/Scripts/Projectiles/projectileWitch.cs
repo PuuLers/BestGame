@@ -29,7 +29,6 @@ public class projectileWitch : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        transform.Translate(Vector2.right * Speed * Time.deltaTime);
         transform.position = Vector2.MoveTowards(transform.position, player.position, Speed * Time.deltaTime);
 
     }

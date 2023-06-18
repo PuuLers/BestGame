@@ -12,6 +12,7 @@ TagManager:
   - Slug
   - projectileSlug
   - Witch
+  - projectileWitch
   layers:
   - Default
   - TransparentFX

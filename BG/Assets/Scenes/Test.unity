@@ -229,9 +229,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 326772536}
+  - component: {fileID: 326772537}
   m_Layer: 0
   m_Name: projectileWitch
-  m_TagString: Untagged
+  m_TagString: projectileWitch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,6 +253,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &326772537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326772535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52afb6ecd944db47bb7503e1681811b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 50
+  Damage: 20
+  WhatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 512
+  distanse: 0.5
+  Witch: {fileID: 1900834247}
 --- !u!1001 &380664542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -319,7 +339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 410274798}
   - component: {fileID: 410274799}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy1_58
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 569952714}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: shotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -610,6 +630,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1291382531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4145662466089440504, guid: eff2738fc91972c47a7582eca5d249ca, type: 3}
+  m_PrefabInstance: {fileID: 380664542}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1335462600
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,7 +906,7 @@ GameObject:
   - component: {fileID: 1900834249}
   - component: {fileID: 1900834248}
   - component: {fileID: 1900834251}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Witch
   m_TagString: Witch
   m_Icon: {fileID: 0}
@@ -970,11 +995,11 @@ MonoBehaviour:
   speed: 0.1
   agrodistance: 30
   startTimeBtwShots: 1
-  projectileWitch: {fileID: 0}
-  bulletSpeed: 0
+  projectileWitch: {fileID: 326772535}
+  bulletSpeed: 50
   shotPoint: {fileID: 881533709}
-  bat: {fileID: 0}
-  batCount: 0
+  bat: {fileID: 7744018054365315360, guid: 9d4fda49f9a774b4685d85a171c04ecf, type: 3}
+  batCount: 4
 --- !u!1001 &1908397584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1247,5 +1272,9 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3888206987205295647, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
+      propertyPath: projectileSlug
+      value: 
+      objectReference: {fileID: 1291382531}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}

@@ -63,7 +63,7 @@ public class Witch : MonoBehaviour
         if (AgroMode == true)
         {
             Move();
-
+            LrAttack(); 
 
 
             if (!isAttacking)
@@ -90,12 +90,7 @@ public class Witch : MonoBehaviour
 
     public void LrAttack()
     {
-        Vector2 direction = player.position - transform.position;
-        shotPoint.right = direction;
-        GameObject bullet = Instantiate(projectileWitch, shotPoint.position, Quaternion.identity);
-        bullet.transform.right = direction;
-        Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
-        bulletRigidbody.velocity = direction.normalized * bulletSpeed;
+      Instantiate(projectileWitch);
     }
 
  
