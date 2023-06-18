@@ -181,15 +181,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   HP: 10
-  speed: 0.06
+  speed: 0.1
   agrodistance: 20
-  distance: 0
   startTimeBtwShots: 1
   projectileSlug: {fileID: 0}
   bulletSpeed: 15
   shotPoint: {fileID: 3888206986828457187}
   raycastDistance: 10
-  attackDelay: 2
+  CloseAttackDelay: 2
 --- !u!95 &7287936095752062971
 Animator:
   serializedVersion: 5

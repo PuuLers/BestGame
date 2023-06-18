@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 15
-  Damage: 0
+  Damage: 10
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 512

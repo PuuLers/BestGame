@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - Slug
   - projectileSlug
+  - Witch
   layers:
   - Default
   - TransparentFX
