@@ -14,7 +14,7 @@ public class PlayerCamera : MonoBehaviour
         {
             x = Player.transform.position.x,
             y = Player.transform.position.y,
-            z = Player.transform.position.z - 10,
+            z = Player.transform.position.z - 100,
         };
         Camera.transform.position = Vector3.Lerp(Camera.transform.position, target, Speed * Time.fixedDeltaTime);
     }
