@@ -12,12 +12,8 @@ public class Player : MonoBehaviour
     private Vector2 MoveVector;
     private Animator anim;
     public Joystick JoystickMove;
-
-
-    private void PlayerMirror()
-    {
-       //
-    }
+    public Joystick JoystickGun;
+    private SpriteRenderer sprite;
 
 
     public void Hit()
@@ -29,26 +25,27 @@ public class Player : MonoBehaviour
     {
         Rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
     }
     void Update()
     {
-        Debug.Log(HealthPoint);
+        Debug.Log(MoveVector.x);
         if (HealthPoint <= 0)
         {
             Debug.Log("ÒÛÑÄÎÕÍÀÕÓÉ");
         }
         MoveVector.x = JoystickMove.Horizontal;
         MoveVector.y = JoystickMove.Vertical;
-        Vector3 LocalScale = Vector3.one;
-        transform.localScale = LocalScale;
-        if (MoveVector.x < 0)
+      
+        if (MoveVector.x < 0f)
         {
-            LocalScale.x = LocalScale.x * -1f;
+            sprite.flipX = true;
         }
         else
         {
-            LocalScale.x = LocalScale.x * +1f;
+            sprite.flipX = false;
         }
+
 
         if (MoveVector.x != 0 || MoveVector.y != 0)
         {
