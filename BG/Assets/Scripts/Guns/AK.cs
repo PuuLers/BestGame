@@ -12,7 +12,7 @@ public class AK : MonoBehaviour
     private float Reload;
     public float startTimeBtwShots;
     public Animator animator;
-    public Joystick JoystickMove;
+    public Joystick JoystickGun;
     private float rotZ;
    
 
@@ -25,9 +25,9 @@ public class AK : MonoBehaviour
     private void Update()
     {
         //Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;    äëÿ ÏÊ
-        if (Mathf.Abs(JoystickMove.Horizontal) > 0.3f || Mathf.Abs(JoystickMove.Vertical) > 0.3f)
+        if (Mathf.Abs(JoystickGun.Horizontal) > 0.3f || Mathf.Abs(JoystickGun.Vertical) > 0.3f)
         {
-            rotZ = Mathf.Atan2(JoystickMove.Horizontal, JoystickMove.Vertical) * Mathf.Rad2Deg;
+            rotZ = Mathf.Atan2(JoystickGun.Horizontal, JoystickGun.Vertical) * Mathf.Rad2Deg;
         }
        
         transform.rotation = Quaternion.Euler(0f, 0f, -rotZ + offset);
@@ -48,7 +48,7 @@ public class AK : MonoBehaviour
 
         if (Reload <= 0)
         {
-            if (JoystickMove.Horizontal != 0 || JoystickMove.Vertical != 0)
+            if (JoystickGun.Horizontal != 0 || JoystickGun.Vertical != 0)
             {
                 animator.SetBool("Shoot", true);
                 fire();
