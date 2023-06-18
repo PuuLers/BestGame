@@ -452,6 +452,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1562135828899223745, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: JoystickGun
+      value: 
+      objectReference: {fileID: 1818485681}
+    - target: {fileID: 1562135828899223745, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: JoystickMove
       value: 
       objectReference: {fileID: 1818485681}
