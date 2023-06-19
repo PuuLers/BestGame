@@ -41,6 +41,14 @@ public class Player : MonoBehaviour
         if (ShootingMode == true)
         {
             Speed = ShootingSpeed;
+            if(AK.rotZ < 0 || AK.rotZ > 180)
+            {
+                sprite.flipX = true;
+            }
+            else
+            {
+                sprite.flipX = false;
+            }
         }
         else
         {
@@ -54,11 +62,11 @@ public class Player : MonoBehaviour
         //реализация поворота и джостика
         MoveVector.x = JoystickMove.Horizontal;
         MoveVector.y = JoystickMove.Vertical;
-        if (MoveVector.x > 0f )
+        if (MoveVector.x > 0f && !ShootingMode)
         {
             sprite.flipX = false;
         }
-        else if (MoveVector.x < 0f)
+        else if (MoveVector.x < 0f && !ShootingMode)
         {
             sprite.flipX = true;
         }
@@ -73,6 +81,7 @@ public class Player : MonoBehaviour
         }
 
     }
+    
     private void FixedUpdate()
     {
         Rigidbody.MovePosition(Rigidbody.position + MoveVector * Speed * Time.fixedDeltaTime);
