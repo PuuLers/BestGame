@@ -21,6 +21,7 @@ public class projectileSlug : MonoBehaviour
 
     void Update()
     {
+        transform.Translate(Vector2.right * Speed * Time.deltaTime);
         RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.right, distanse, WhatIsPlayer);
         if (hitinfo.collider != null)
         {
@@ -33,8 +34,7 @@ public class projectileSlug : MonoBehaviour
                 Instantiate(Slug);
             }
             Destroy(gameObject);
-        }
-        transform.Translate(Vector2.right * Speed * Time.deltaTime);
+        } 
     }
     
 

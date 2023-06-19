@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
-        //присвоение знаяений и стабилизация скорости
+        //присвоение значений и стабилизация скорости
         ShootingSpeed = Speed / 2;
         NormalizedSpeed = Speed;
     }

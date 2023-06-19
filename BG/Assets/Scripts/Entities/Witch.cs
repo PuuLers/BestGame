@@ -22,13 +22,23 @@ public class Witch : MonoBehaviour
     private bool isAttacking = false;
     public GameObject bat;
     public int batCount;
+    public float CloseAttackDelay = 2f;
+    private float nextAttackTime = 0f;
 
     public void TakeDamage(int Damage)
     {
         HP -= Damage;
-        for (int i = 0; i < batCount; i++) 
+        if (AgroMode == true)
         {
-            Instantiate(bat);
+            for (int i = 0; i < batCount; i++)
+            {
+                if (Time.time > nextAttackTime)
+                {
+                    Instantiate(bat, transform);
+                    nextAttackTime = Time.time + CloseAttackDelay;
+                }
+
+            }
         }
     }
 
@@ -63,7 +73,6 @@ public class Witch : MonoBehaviour
         if (AgroMode == true)
         {
             Move();
-            LrAttack(); 
 
 
             if (!isAttacking)
@@ -90,7 +99,12 @@ public class Witch : MonoBehaviour
 
     public void LrAttack()
     {
-      Instantiate(projectileWitch);
+        Vector2 direction = player.position - transform.position;
+        shotPoint.right = direction;
+        GameObject bullet = Instantiate(projectileWitch, shotPoint.position, Quaternion.identity);
+        bullet.transform.right = direction;
+        Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+        bulletRigidbody.velocity = direction.normalized * bulletSpeed;
     }
 
  

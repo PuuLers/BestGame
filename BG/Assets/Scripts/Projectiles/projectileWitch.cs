@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class projectileWitch : MonoBehaviour
 {
@@ -8,15 +9,16 @@ public class projectileWitch : MonoBehaviour
     public int Damage;
     public LayerMask WhatIsPlayer;
     public float distanse;
-    public GameObject Witch;
     private Transform player;
-    //private float projectileLifetime = 2f;
+    private Rigidbody2D rb;
 
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        rb = GetComponent<Rigidbody2D>();
     }
+
 
     void Update()
     {
@@ -29,8 +31,15 @@ public class projectileWitch : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        transform.position = Vector2.MoveTowards(transform.position, player.position, Speed * Time.deltaTime);
-
+    }
+    void FixedUpdate()
+    {
+        if (player != null)
+        {
+            Vector2 direction = (Vector2)player.position - rb.position;
+            direction.Normalize();
+            rb.velocity = direction * Speed;
+        }
     }
 }
     
