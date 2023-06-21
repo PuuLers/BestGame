@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private float NormalizedSpeed;
     private float ShootingSpeed;
     static public bool ShootingMode = false;
-    static public int HealthPoint = 100;
+    static public float HealthPoint = 100;
     public float Speed = 10f;
     private Rigidbody2D Rigidbody;
     private Vector2 MoveVector;
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     private void ShowIndicators()
     {
-        HPBar.fillAmount = HealthPoint;
+        HPBar.fillAmount = HealthPoint / 100f;
     }
 
 
