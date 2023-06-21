@@ -13,6 +13,7 @@ TagManager:
   - projectileSlug
   - Witch
   - projectileWitch
+  - Mushroom
   layers:
   - Default
   - TransparentFX

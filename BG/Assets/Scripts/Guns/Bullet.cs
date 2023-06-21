@@ -36,6 +36,10 @@ public class Bullet : MonoBehaviour
             {
                 hitinfo.collider.GetComponent<Witch>().TakeDamage(Damage);
             }
+            else if (hitinfo.collider.CompareTag("Mushroom"))
+            {
+                hitinfo.collider.GetComponent<Mushroom>().TakeDamage(Damage);
+            }
 
             Destroy(gameObject);
         }

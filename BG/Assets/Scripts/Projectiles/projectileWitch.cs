@@ -18,32 +18,26 @@ public class projectileWitch : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
+        Destroy(gameObject, 3f);
     }
 
 
     void Update()
     {
-        //Vector2 direction = (Vector2)player.position - rb.position;
-        //direction.Normalize();
-        //float rotateAmount = Vector3.Cross(direction, transform.forward).z;
-        //rb.angularVelocity = -rotateAmount * rotateSpeed;
-        //rb.velocity = transform.forward * Speed;
-
-        //transform.position = Vector3.MoveTowards(transform.position, player.position, Speed * Time.deltaTime);
         transform.Translate(Vector2.up * Speed * Time.deltaTime);
-        RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.right, distanse, WhatIsPlayer);
-            if (hitinfo.collider != null)
-            {
-                if (hitinfo.collider.CompareTag("Player"))
-                {
-                    hitinfo.collider.GetComponent<Player>().TakeDamage(Damage);
-                }
-                Destroy(gameObject);
-            }
         Vector3 dir = player.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
+        RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.right, distanse, WhatIsPlayer);
+        if (hitinfo.collider != null)
+        {
+            if (hitinfo.collider.CompareTag("Player"))
+            {
+                hitinfo.collider.GetComponent<Player>().TakeDamage(Damage);
+            }
+            Destroy(gameObject);
+        }
     }
 }
     
