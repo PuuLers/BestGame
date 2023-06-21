@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    static public float Experience;
+    public Image EXPBar;
     public Image HPBar;
     private float NormalizedSpeed;
     private float ShootingSpeed;
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
     private void ShowIndicators()
     {
         HPBar.fillAmount = HealthPoint / 100f;
+        EXPBar.fillAmount = Experience / 100f
     }
 
 
