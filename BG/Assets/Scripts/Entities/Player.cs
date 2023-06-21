@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public Image HPBar;
     private float NormalizedSpeed;
     private float ShootingSpeed;
     static public bool ShootingMode = false;
@@ -17,6 +19,12 @@ public class Player : MonoBehaviour
     public Joystick JoystickMove;
     public Joystick JoystickGun;
     private SpriteRenderer sprite;
+
+
+    private void ShowIndicators()
+    {
+        HPBar.fillAmount = HealthPoint;
+    }
 
 
     public void Hit()
@@ -36,6 +44,8 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
+        //выводим показатели
+        ShowIndicators();
         Debug.Log(MoveVector.x);
         //замедление во время стрельбы
         if (ShootingMode == true)
