@@ -28,8 +28,9 @@ public class projectileWitch : MonoBehaviour
         //float rotateAmount = Vector3.Cross(direction, transform.forward).z;
         //rb.angularVelocity = -rotateAmount * rotateSpeed;
         //rb.velocity = transform.forward * Speed;
+
         //transform.position = Vector3.MoveTowards(transform.position, player.position, Speed * Time.deltaTime);
-        transform.Translate(Vector2.right * Speed * Time.deltaTime);
+        transform.Translate(Vector2.up * Speed * Time.deltaTime);
         RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.right, distanse, WhatIsPlayer);
             if (hitinfo.collider != null)
             {
@@ -39,7 +40,9 @@ public class projectileWitch : MonoBehaviour
                 }
                 Destroy(gameObject);
             }
-
+        Vector3 dir = player.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
     }
 }
