@@ -60,7 +60,7 @@ public class Witch : MonoBehaviour
         }
         if (HP <= 0)
         {
-            //animator.SetInteger("Witch states", 1);
+            //animator.SetInteger("Witch states", 2);
             AgroMode = false;
             agrodistance = 0;
         }
@@ -105,6 +105,7 @@ public class Witch : MonoBehaviour
 
     private void Move()
     {
+        animator.SetInteger("Witch states", 1);
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
         Vector3 LocalScale = Vector3.one;
         if (transform.position.x > player.position.x)
