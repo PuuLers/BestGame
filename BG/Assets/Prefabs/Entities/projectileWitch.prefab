@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 6100122765259394676}
   - component: {fileID: 6100122765259394677}
   - component: {fileID: 6100122765259394678}
+  - component: {fileID: 2691689969868947792}
   m_Layer: 0
   m_Name: projectileWitch
   m_TagString: projectileWitch
@@ -135,8 +136,9 @@ MonoBehaviour:
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
-  distanse: 0.5
-  Witch: {fileID: 0}
+  distanse: 0
+  player: {fileID: 1562135830907209486, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+  rotateSpeed: 3
 --- !u!50 &6100122765259394678
 Rigidbody2D:
   serializedVersion: 4
@@ -158,3 +160,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &2691689969868947792
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6100122765259394683}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.002754867, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.26583475

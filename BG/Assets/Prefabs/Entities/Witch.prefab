@@ -278,9 +278,10 @@ MonoBehaviour:
   speed: 0.1
   agrodistance: 30
   startTimeBtwShots: 1
-  projectileWitch: {fileID: 0}
+  projectileWitch: {fileID: 6100122765259394683, guid: 2ce986afcca4c6c41ae4413e29685f10, type: 3}
   bulletSpeed: 50
   shotPoint: {fileID: 2692293766540550391}
   bat: {fileID: 7744018054365315360, guid: 9d4fda49f9a774b4685d85a171c04ecf, type: 3}
   batCount: 4
-  CloseAttackDelay: 2
+  attackDelay: 2
+  projectileSpeed: 0

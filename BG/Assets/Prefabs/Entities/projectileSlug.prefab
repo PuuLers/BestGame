@@ -137,7 +137,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   distanse: 0.5
-  Slug: {fileID: 0}
+  Slug: {fileID: 3888206987205295634, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
 --- !u!58 &4145662466089440486
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ public class Witch : MonoBehaviour
     public int batCount;
     public float attackDelay = 2f;
     private float nextAttackTime = 0f;
+    public float projectileSpeed;
 
     public void TakeDamage(int Damage)
     {
@@ -64,6 +65,7 @@ public class Witch : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
     }
 
 
