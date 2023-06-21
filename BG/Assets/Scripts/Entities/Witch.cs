@@ -22,7 +22,7 @@ public class Witch : MonoBehaviour
     private bool isAttacking = false;
     public GameObject bat;
     public int batCount;
-    public float CloseAttackDelay = 2f;
+    public float attackDelay = 2f;
     private float nextAttackTime = 0f;
 
     public void TakeDamage(int Damage)
@@ -34,8 +34,9 @@ public class Witch : MonoBehaviour
             {
                 if (Time.time > nextAttackTime)
                 {
-                    Instantiate(bat, transform);
-                    nextAttackTime = Time.time + CloseAttackDelay;
+                    GameObject newObject = Instantiate(bat, transform.position, Quaternion.identity);
+                    newObject.transform.parent = null;
+                    nextAttackTime = Time.time + attackDelay;
                 }
 
             }
