@@ -267,7 +267,7 @@ MonoBehaviour:
   WhatIsSolid:
     serializedVersion: 2
     m_Bits: 256
-  distanse: 0.5
+  distance: 0
 --- !u!50 &988400731043203250
 Rigidbody2D:
   serializedVersion: 4
