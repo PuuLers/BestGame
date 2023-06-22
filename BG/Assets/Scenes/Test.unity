@@ -548,6 +548,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3888206986145078094, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888206986828457188, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3888206987205295632, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -595,6 +603,10 @@ PrefabInstance:
     - target: {fileID: 3888206987205295634, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
       propertyPath: m_Name
       value: Slug
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888206987205295634, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
@@ -751,14 +763,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1975625690036998525, guid: 3ccca96410f6d244a8365e64b4266755, type: 3}
       propertyPath: m_Name
-      value: Mushroom
-      objectReference: {fileID: 0}
-    - target: {fileID: 1975625690036998525, guid: 3ccca96410f6d244a8365e64b4266755, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1975625690036998525, guid: 3ccca96410f6d244a8365e64b4266755, type: 3}
-      propertyPath: m_TagString
       value: Mushroom
       objectReference: {fileID: 0}
     - target: {fileID: 4190755856881541833, guid: 3ccca96410f6d244a8365e64b4266755, type: 3}

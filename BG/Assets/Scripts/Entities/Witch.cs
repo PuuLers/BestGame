@@ -60,7 +60,7 @@ public class Witch : MonoBehaviour
         }
         if (HP <= 0)
         {
-            //animator.SetInteger("Witch states", 2);
+            animator.SetInteger("Witch states", 2);
             AgroMode = false;
             agrodistance = 0;
         }
@@ -100,6 +100,7 @@ public class Witch : MonoBehaviour
         else
         {
             AgroMode = false;
+            animator.SetInteger("Witch states", 0);
         }
     }
 
@@ -129,17 +130,19 @@ public class Witch : MonoBehaviour
         bulletRigidbody.velocity = direction.normalized * bulletSpeed;
     }
     public void SpecialAttack()
-    {
-        if (!isSpawning)
+    {   if (AgroMode == true)
         {
-            StartCoroutine(AttackDelay());
-        }
-        IEnumerator AttackDelay()
-        {
-            isSpawning = true;
-            yield return new WaitForSeconds(spawnCooldown);
-            Instantiate(mushroom, transform.position, Quaternion.identity);
-            isSpawning = false;
+            if (!isSpawning)
+            {
+                StartCoroutine(AttackDelay());
+            }
+            IEnumerator AttackDelay()
+            {
+                isSpawning = true;
+                yield return new WaitForSeconds(spawnCooldown);
+                Instantiate(mushroom, transform.position, Quaternion.identity);
+                isSpawning = false;
+            }
         }
     }
 
