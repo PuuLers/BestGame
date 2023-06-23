@@ -33,14 +33,14 @@ public class Witch : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
     }
 
 
     private void Update()
     {
         DistanceCheck();
-        
-
+        Debug.Log(HP);
         if (AgroMode == true)
         {
             Move();
@@ -84,8 +84,6 @@ public class Witch : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            batScript = GetComponent<Bat>();
-            float localagrodistance = batScript.agrodistance + 20;
             Vector3 batPosition = transform.position + new Vector3(Random.Range(-2f, 2f), Random.Range(-1f, 1f), 0);
             Instantiate(bat, batPosition, Quaternion.identity);
         }

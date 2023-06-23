@@ -35,8 +35,6 @@ public class AK : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, -rotZ + offset);
 
         Bullet.Damage = Damage;
-        Debug.Log(JoystickGun.Horizontal);
-
 
 
 

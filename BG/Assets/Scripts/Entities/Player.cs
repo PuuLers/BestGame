@@ -49,7 +49,6 @@ public class Player : MonoBehaviour
     {
         //выводим показатели
         ShowIndicators();
-        Debug.Log(MoveVector.x);
         //замедление во время стрельбы
         if (ShootingMode == true)
         {
