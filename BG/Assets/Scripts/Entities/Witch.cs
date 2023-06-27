@@ -18,12 +18,10 @@ public class Witch : MonoBehaviour
     public GameObject projectileWitch;
     public GameObject bat;
     public GameObject mushroom;
-    private Bat batScript;
     private float fireCooldown = 5f;
     public float spawnCooldown = 10f;
     public float bulletSpeed;
     private bool isAttacking = false;
-    private bool isSpawning = false;
     public int batCount;
     public float attackDelay = 2f;
     private float nextAttackTime = 0f;

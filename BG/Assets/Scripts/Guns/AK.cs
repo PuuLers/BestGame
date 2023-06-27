@@ -18,6 +18,11 @@ public class AK : MonoBehaviour
     public float JoystickFireDistance = 0.7f;
 
 
+    private void Start()
+    {
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+    }
+
     private void fire()
     {
         Instantiate(bullet, shotPoint.position, transform.rotation);
