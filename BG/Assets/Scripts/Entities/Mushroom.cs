@@ -21,7 +21,6 @@ public class Mushroom : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        Destroy(gameObject, 8);
     }
 
     void Update()
@@ -47,6 +46,7 @@ public class Mushroom : MonoBehaviour
             //animator.SetInteger("Mushroom states", 1);
             AgroMode = false;
             agrodistance = 0;
+            Destroy(gameObject);
         }
     }
 

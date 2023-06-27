@@ -27,6 +27,7 @@ public class Witch : MonoBehaviour
     public int batCount;
     public float attackDelay = 2f;
     private float nextAttackTime = 0f;
+    public static float exp;
    
 
     private void Start()
@@ -40,7 +41,6 @@ public class Witch : MonoBehaviour
     private void Update()
     {
         DistanceCheck();
-        Debug.Log(HP);
         if (AgroMode == true)
         {
             Move();
@@ -128,19 +128,11 @@ public class Witch : MonoBehaviour
         bulletRigidbody.velocity = direction.normalized * bulletSpeed;
     }
     public void SpecialAttack()
-    {   if (AgroMode == true)
+    {   
+        if (exp >= 50)
         {
-            if (!isSpawning)
-            {
-                StartCoroutine(AttackDelay());
-            }
-            IEnumerator AttackDelay()
-            {
-                isSpawning = true;
-                yield return new WaitForSeconds(spawnCooldown);
-                Instantiate(mushroom, transform.position, Quaternion.identity);
-                isSpawning = false;
-            }
+            Instantiate(mushroom, transform.position, Quaternion.identity);
+            exp = 0;
         }
     }
 

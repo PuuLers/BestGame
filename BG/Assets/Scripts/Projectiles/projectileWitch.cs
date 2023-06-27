@@ -35,6 +35,7 @@ public class projectileWitch : MonoBehaviour
             if (hitinfo.collider.CompareTag("Player"))
             {
                 hitinfo.collider.GetComponent<Player>().TakeDamage(Damage);
+                Witch.exp += 10;
             }
             Destroy(gameObject);
         }
