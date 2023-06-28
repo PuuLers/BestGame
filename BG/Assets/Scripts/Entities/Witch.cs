@@ -25,7 +25,7 @@ public class Witch : MonoBehaviour
     public int batCount;
     public float attackDelay = 2f;
     private float nextAttackTime = 0f;
-    public static float exp;
+    private int exp;
    
 
     private void Start()
@@ -43,6 +43,8 @@ public class Witch : MonoBehaviour
         {
             Move();
             SpecialAttack();
+            Debug.Log(exp);
+
 
             if (!isAttacking)
             {
@@ -127,11 +129,15 @@ public class Witch : MonoBehaviour
     }
     public void SpecialAttack()
     {   
-        if (exp >= 50)
+        if (exp >= 5)
         {
             Instantiate(mushroom, transform.position, Quaternion.identity);
             exp = 0;
         }
+    }
+    public void SetExp(int newExp)
+    {
+        exp += newExp;
     }
 
 

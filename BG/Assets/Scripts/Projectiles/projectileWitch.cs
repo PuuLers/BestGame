@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -12,6 +13,7 @@ public class projectileWitch : MonoBehaviour
     public Transform player;
     private Rigidbody2D rb;
     public int rotateSpeed = 3;
+    [SerializeField] private Witch witchScript;
 
 
     void Start()
@@ -35,10 +37,15 @@ public class projectileWitch : MonoBehaviour
             if (hitinfo.collider.CompareTag("Player"))
             {
                 hitinfo.collider.GetComponent<Player>().TakeDamage(Damage);
-                Witch.exp += 10;
+                GetExp();
             }
             Destroy(gameObject);
         }
+    }
+    private void GetExp()
+    {
+        int newExp = 1; 
+        witchScript.SetExp(newExp);
     }
 }
     

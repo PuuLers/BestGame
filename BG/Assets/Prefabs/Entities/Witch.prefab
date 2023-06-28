@@ -286,6 +286,7 @@ MonoBehaviour:
   bulletSpeed: 50
   batCount: 4
   attackDelay: 2
+  exp: 0
 --- !u!95 &6325049819014061396
 Animator:
   serializedVersion: 5

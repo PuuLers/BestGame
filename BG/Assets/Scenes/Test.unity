@@ -174,10 +174,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2692293767660219953, guid: 5bcfb7bb8ac0ab04cb7e301ffa3faa35, type: 3}
-      propertyPath: speed
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2692293767660219965, guid: 5bcfb7bb8ac0ab04cb7e301ffa3faa35, type: 3}
       propertyPath: m_Name
       value: Witch (1)
@@ -233,10 +229,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2692293767660219952, guid: 5bcfb7bb8ac0ab04cb7e301ffa3faa35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2692293767660219953, guid: 5bcfb7bb8ac0ab04cb7e301ffa3faa35, type: 3}
-      propertyPath: speed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2692293767660219965, guid: 5bcfb7bb8ac0ab04cb7e301ffa3faa35, type: 3}
