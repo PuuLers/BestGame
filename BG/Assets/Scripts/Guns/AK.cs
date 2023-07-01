@@ -6,23 +6,21 @@ using static UnityEngine.GraphicsBuffer;
 
 public class AK : MonoBehaviour
 {
-    public static int Damage = 10;
-    public float offset;
     public GameObject bullet;
     public Transform shotPoint;
-    private float Reload;
-    public float startTimeBtwShots;
     public Animator animator;
     public Joystick JoystickGun;
+
+    public static int Damage = 10;
+    public float offset;
+    
+    private float Reload;
+    public float startTimeBtwShots;
+   
     static public float rotZ;
     public float JoystickFireDistance = 0.7f;
 
-
-    private void Start()
-    {
-        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-    }
-
+    //вызывается в анимации
     private void fire()
     {
         Instantiate(bullet, shotPoint.position, transform.rotation);
@@ -60,7 +58,6 @@ public class AK : MonoBehaviour
             if (JoystickGun.Horizontal > JoystickFireDistance || JoystickGun.Horizontal < -JoystickFireDistance || JoystickGun.Vertical > JoystickFireDistance || JoystickGun.Vertical < -JoystickFireDistance)
             {
                 animator.SetBool("Shoot", true);
-                fire();
                 Player.ShootingMode = true;
             }
             else

@@ -321,7 +321,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3, y: 0.8}
+  m_Size: {x: 1.875, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -444,7 +444,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35faaee8572bca34b99615e74b1997f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootingSpeed: 0
+  EXPBar: {fileID: 0}
+  HPBar: {fileID: 0}
   Speed: 10
   JoystickMove: {fileID: 0}
   JoystickGun: {fileID: 0}
