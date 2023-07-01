@@ -1,18 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class projectileSlug : MonoBehaviour
+public class projectileIce : MonoBehaviour
 {
     public float Speed;
     public int Damage;
     public LayerMask WhatIsPlayer;
     public float distanse;
-    public GameObject Slug;
-
 
     void Update()
     {
@@ -24,22 +19,8 @@ public class projectileSlug : MonoBehaviour
             {
                 hitinfo.collider.GetComponent<Player>().TakeDamage(Damage);
             }
-            else if (hitinfo.collider.CompareTag("Walls"))
-            {
-                Instantiate(Slug);
-            }
             Destroy(gameObject);
-        } 
+        }
     }
-    
-
-
-
-
-
-
-
-
-
-
 }
+

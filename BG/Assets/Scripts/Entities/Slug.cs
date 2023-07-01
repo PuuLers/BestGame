@@ -7,42 +7,22 @@ public class Slug : MonoBehaviour
 {
     public int Damage = 10;
     public int HP = 10;
-    private Transform player;
     public float speed;
     public float agrodistance;
     private float distance;
-    private Animator animator;
     private bool AgroMode = false;
-    public float startTimeBtwShots;
-    public GameObject projectileSlug;
-    private float fireCooldown = 0.6f;
-    public float bulletSpeed;
-    public Transform shotPoint;
     private bool isAttacking = false;
     public float raycastDistance = 10f;
     public float CloseAttackDelay = 2f;
     private float nextAttackTime = 0f;
+    private Animator animator;
+    public GameObject projectileSlug;
+    public float startTimeBtwShots;
+    private float fireCooldown = 0.6f;
+    public float bulletSpeed;
+    public Transform shotPoint;
+    private Transform player;
 
-
-    public void TakeDamage(int Damage)
-    {
-        HP -= Damage;
-    }
-
-    private void Move()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
-        Vector3 LocalScale = Vector3.one;
-        if (transform.position.x > player.position.x)
-        {
-            LocalScale.x = LocalScale.x * -1;
-        }
-        else
-        {
-            LocalScale.x = LocalScale.x * 1;
-        }
-        transform.localScale = LocalScale;
-    }
 
 
     private void Start()
@@ -82,6 +62,39 @@ public class Slug : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int Damage)
+    {
+        HP -= Damage;
+    }
+
+    public void DistanceCheck()
+    {
+        distance = Vector3.Distance(player.position, transform.position);
+        if (distance < agrodistance)
+        {
+            AgroMode = true;
+        }
+        else
+        {
+            AgroMode = false;
+        }
+    }
+
+    private void Move()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
+        Vector3 LocalScale = Vector3.one;
+        if (transform.position.x > player.position.x)
+        {
+            LocalScale.x = LocalScale.x * -1;
+        }
+        else
+        {
+            LocalScale.x = LocalScale.x * 1;
+        }
+        transform.localScale = LocalScale;
+    }
+
     public void closeAttack()
     {
         Vector2 raycastOrigin = transform.position;
@@ -112,17 +125,5 @@ public class Slug : MonoBehaviour
     }
 
 
-    public void DistanceCheck()
-    {
-        distance = Vector3.Distance(player.position, transform.position);
-        if (distance < agrodistance)
-        {
-            AgroMode = true;
-        }
-        else
-        {
-            AgroMode = false;
-        }
-    }
 }
 

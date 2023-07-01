@@ -2,58 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mushroom : MonoBehaviour
+public class Stave : MonoBehaviour
 {
-    public int Damage = 20;
-    public int HP = 50;
-    private Transform player;
-    public Transform spawnPoint;
+    public int Damage = 10;
     public float agrodistance;
     private float distance;
-    private Animator animator;
     private bool AgroMode = false;
-    public GameObject projectileWitch;
-    private float fireCooldown = 1f;
+    private bool isAttacking = false;
+    public GameObject projectileIce;
+    public float startTimeBtwShots;
+    private float fireCooldown = 0.6f;
     public float bulletSpeed;
-    private bool isShooting = false;
+    public Transform shotPoint;
+    private Transform player;
+
 
     void Start()
     {
-        animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        Destroy(gameObject, 8f);
     }
 
-    void Update()
+
+    private void Update()
     {
         DistanceCheck();
 
         if (AgroMode == true)
         {
-            if (!isShooting)
+            if (!isAttacking)
             {
                 StartCoroutine(AttackDelay());
             }
             IEnumerator AttackDelay()
             {
-                isShooting = true;
+                isAttacking = true;
                 yield return new WaitForSeconds(fireCooldown);
                 LrAttack();
-                isShooting = false;
+                isAttacking = false;
             }
         }
-        if (HP <= 0)
-        {
-            //animator.SetInteger("Mushroom states", 1);
-            AgroMode = false;
-            agrodistance = 0;
-            Destroy(gameObject);
-        }
-    }
-
-    public void TakeDamage(int Damage)
-    {
-        HP -= Damage;
     }
 
     public void DistanceCheck()
@@ -71,12 +58,11 @@ public class Mushroom : MonoBehaviour
 
     public void LrAttack()
     {
-        Vector2 direction = player.position - spawnPoint.position;
-        spawnPoint.right = direction;
-        GameObject bullet = Instantiate(projectileWitch, spawnPoint.position, Quaternion.identity);
+        Vector2 direction = player.position - transform.position;
+        shotPoint.right = direction;
+        GameObject bullet = Instantiate(projectileIce, shotPoint.position, Quaternion.identity);
         bullet.transform.right = direction;
         Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
         bulletRigidbody.velocity = direction.normalized * bulletSpeed;
     }
-
 }

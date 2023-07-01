@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 3888206987205295633}
   - component: {fileID: 3888206987205295647}
   - component: {fileID: 7287936095752062971}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Slug
   m_TagString: Slug
   m_Icon: {fileID: 0}
@@ -181,14 +181,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   HP: 10
-  speed: 0.1
+  speed: 0.05
   agrodistance: 20
-  startTimeBtwShots: 1
-  projectileSlug: {fileID: 4145662466089440504, guid: eff2738fc91972c47a7582eca5d249ca, type: 3}
-  bulletSpeed: 15
-  shotPoint: {fileID: 3888206986828457187}
   raycastDistance: 10
   CloseAttackDelay: 2
+  projectileSlug: {fileID: 4145662466089440504, guid: eff2738fc91972c47a7582eca5d249ca, type: 3}
+  startTimeBtwShots: 1
+  bulletSpeed: 15
+  shotPoint: {fileID: 3888206986828457187}
 --- !u!95 &7287936095752062971
 Animator:
   serializedVersion: 5

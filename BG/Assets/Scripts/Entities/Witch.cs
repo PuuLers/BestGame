@@ -22,10 +22,11 @@ public class Witch : MonoBehaviour
     public float spawnCooldown = 10f;
     public float bulletSpeed;
     private bool isAttacking = false;
+    private bool isSpawning = false;
     public int batCount;
     public float attackDelay = 2f;
     private float nextAttackTime = 0f;
-    private int exp;
+
    
 
     private void Start()
@@ -43,7 +44,6 @@ public class Witch : MonoBehaviour
         {
             Move();
             SpecialAttack();
-            Debug.Log(exp);
 
 
             if (!isAttacking)
@@ -128,17 +128,21 @@ public class Witch : MonoBehaviour
         bulletRigidbody.velocity = direction.normalized * bulletSpeed;
     }
     public void SpecialAttack()
-    {   
-        if (exp >= 5)
-        {
-            Instantiate(mushroom, transform.position, Quaternion.identity);
-            exp = 0;
-        }
-    }
-    public void SetExp(int newExp)
     {
-        exp += newExp;
+        if (!isSpawning)
+        {
+            StartCoroutine(SpawnDelay());
+        }
+        IEnumerator SpawnDelay()
+        {
+            isSpawning = true;
+            yield return new WaitForSeconds(spawnCooldown);
+            Instantiate(mushroom, transform.position, Quaternion.identity);
+            isSpawning = false;
+        }
+      
     }
+
 
 
 
