@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1562135828899223746}
   - component: {fileID: 1562135828899223745}
+  - component: {fileID: 405249723220797527}
   - component: {fileID: 1562135828899223744}
   - component: {fileID: 1562135828899223747}
   m_Layer: 9
@@ -47,13 +48,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69eab6f68e9dada4abae0ebc6d66f136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 90
+  JoystickGun: {fileID: 0}
   bullet: {fileID: 7561668970815862894, guid: b793217091fbe9e439337a395c045637, type: 3}
   shotPoint: {fileID: 1562135829264581893}
-  startTimeBtwShots: 0.5
   animator: {fileID: 1562135828899223744}
+--- !u!114 &405249723220797527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562135828899223757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2624152e613659c479fe85c63ee31973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  JoystickFireDistance: 0.7
 --- !u!95 &1562135828899223744
 Animator:
   serializedVersion: 5
@@ -235,7 +246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562135829264581892}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4455682, y: 0.15006198, z: 0.54}
+  m_LocalPosition: {x: 0.941, y: 0.099, z: 0.54}
   m_LocalScale: {x: 1.0637, y: 0.3949, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
