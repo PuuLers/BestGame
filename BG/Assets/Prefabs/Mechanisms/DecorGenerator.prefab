@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8867802595409979579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8867802595409979577}
+  - component: {fileID: 8867802595409979578}
+  m_Layer: 0
+  m_Name: DecorGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8867802595409979577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8867802595409979579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8867802595409979578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8867802595409979579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581b9e34231172d4a98eeed96302f050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberObject: 20
+  objects:
+  - {fileID: 7190946464524174517, guid: 80acd8a5884166b409f19420a0d120af, type: 3}
+  - {fileID: 2518340798518398020, guid: 592a03ef9abeaf64dabd3bbe9ac60026, type: 3}
+  - {fileID: 5942609003724095542, guid: d43451731020ea1409a024680e2d8d42, type: 3}
+  - {fileID: 240018669105094177, guid: 4f9f9e4554bb3ab4bb04502171f77d0f, type: 3}
+  - {fileID: 6852615338586913759, guid: 549e1ca6e42ac104c9b22a297d865320, type: 3}
+  - {fileID: 4452568673044983106, guid: 4c851d1142ed6764cb00d4f427a72b5b, type: 3}
+  - {fileID: 2973859577633890103, guid: 57ed2363bd67a3343bbe75f197cf6038, type: 3}
+  - {fileID: 339224866684233168, guid: 1e067623a79e97d4983f0cf5906ff9bf, type: 3}
+  - {fileID: 88053773572385303, guid: 04e9856d184a0b143936536fce773407, type: 3}
+  minRange: -40
+  maxRange: 40
