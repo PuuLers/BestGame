@@ -10,8 +10,8 @@ public class IceCyclops : MonoBehaviour
     public float agrodistance;
     private float distance;
     private bool AgroMode = false;
-    public float timeBtwAttack = 2f;
-    public float startTimeBtwAttack = 2f;
+    private float timeBtwAttack;
+    public float startTimeBtwAttack;
     private Animator animator;
     private Transform player;
 
@@ -30,7 +30,6 @@ public class IceCyclops : MonoBehaviour
         if (AgroMode == true)
         {
             Move();
-            closeAttack();
         }
         if (HP <= 0)
         {
@@ -55,13 +54,13 @@ public class IceCyclops : MonoBehaviour
         else
         {
             AgroMode = false;
-            animator.SetInteger("Witch states", 0);
+            animator.SetInteger("Cyclops states", 0);   
         }
     }
 
     private void Move()
     {
-        animator.SetInteger("Witch states", 1);
+        animator.SetInteger("Cyclops states", 1);
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
         Vector3 LocalScale = Vector3.one;
         if (transform.position.x > player.position.x)
@@ -83,12 +82,11 @@ public class IceCyclops : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("collision");
         if (other.CompareTag("Player"))
         {
             if (timeBtwAttack <= 0)
             {
-                animator.SetInteger("Cyclops states", 3);
+                animator.SetTrigger("Attack");
             }
             else
             {
