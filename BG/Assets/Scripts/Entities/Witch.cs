@@ -3,18 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Witch : MonoBehaviour
+public class Witch : ENEMY
 {
-
-    public int Damage = 20;
-    public int HP = 50;
+    private bool AgroMode = false;
     private Transform player;
     public Transform shotPoint;
-    public float speed;
-    public float agrodistance;
-    private float distance;
     private Animator animator;
-    private bool AgroMode = false;
     public GameObject projectileWitch;
     public GameObject bat;
     public GameObject mushroom;
@@ -27,15 +21,12 @@ public class Witch : MonoBehaviour
     public float attackDelay = 2f;
     private float nextAttackTime = 0f;
 
-   
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-
     }
-
 
     private void Update()
     {
@@ -88,19 +79,6 @@ public class Witch : MonoBehaviour
             Instantiate(bat, batPosition, Quaternion.identity);
         }
     }
-        public void DistanceCheck()
-    {
-        distance = Vector3.Distance(player.position, transform.position);
-        if (distance < agrodistance)
-        {
-            AgroMode = true;
-        }
-        else
-        {
-            AgroMode = false;
-            animator.SetInteger("Witch states", 0);
-        }
-    }
 
     private void Move()
     {
@@ -140,7 +118,7 @@ public class Witch : MonoBehaviour
             Instantiate(mushroom, transform.position, Quaternion.identity);
             isSpawning = false;
         }
-      
+
     }
 
 

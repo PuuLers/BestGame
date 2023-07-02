@@ -86,11 +86,14 @@ public class IceCyclops : MonoBehaviour
         {
             if (timeBtwAttack <= 0)
             {
-                animator.SetTrigger("Attack");
+               animator.Play("IceCyclops_meleeAttack");
+               speed = 0;
+                
             }
             else
             {
                 timeBtwAttack -= Time.deltaTime;
+                speed = 0.07f;
             }
         }   
     }
