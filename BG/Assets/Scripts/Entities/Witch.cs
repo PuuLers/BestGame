@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.VersionControl.Asset;
 
 public class Witch : ENEMY
 {
-    private bool AgroMode = false;
-    private Transform player;
     public Transform shotPoint;
     private Animator animator;
     public GameObject projectileWitch;
@@ -17,7 +16,6 @@ public class Witch : ENEMY
     public float bulletSpeed;
     private bool isAttacking = false;
     private bool isSpawning = false;
-    public int batCount;
     public float attackDelay = 2f;
     private float nextAttackTime = 0f;
 
@@ -25,17 +23,38 @@ public class Witch : ENEMY
     private void Start()
     {
         animator = GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
+
+    private void Animation()
+    {
+        if (AgroMode == true)
+        {
+            animator.SetInteger("Witch states", 1);
+        }
+        else 
+        {
+            animator.SetInteger("Witch states", 0);
+        }
+        if (HP <= 0)
+        {
+            animator.SetInteger("Witch states", 2);
+        }
     }
 
     private void Update()
     {
+        Attack();
+        Death();
+        Animation();
         DistanceCheck();
+    }
+
+    private void Attack()
+    {
         if (AgroMode == true)
         {
-            Move();
             SpecialAttack();
-
 
             if (!isAttacking)
             {
@@ -49,17 +68,18 @@ public class Witch : ENEMY
                 isAttacking = false;
             }
         }
-        if (HP <= 0)
-        {
-            animator.SetInteger("Witch states", 2);
-            AgroMode = false;
-            agrodistance = 0;
-        }
     }
 
-    public void TakeDamage(int Damage)
+
+
+
+    void SpawnBats()
     {
-        HP -= Damage;
+        for (int i = 0; i < 4; i++)
+        {
+            Vector3 batPosition = transform.position + new Vector3(Random.Range(-2f, 2f), Random.Range(-1f, 1f), 0);
+            Instantiate(bat, batPosition, Quaternion.identity);
+        }
         if (AgroMode == true)
         {
             if (Time.time > nextAttackTime)
@@ -71,34 +91,9 @@ public class Witch : ENEMY
         }
     }
 
-    void SpawnBats()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            Vector3 batPosition = transform.position + new Vector3(Random.Range(-2f, 2f), Random.Range(-1f, 1f), 0);
-            Instantiate(bat, batPosition, Quaternion.identity);
-        }
-    }
-
-    private void Move()
-    {
-        animator.SetInteger("Witch states", 1);
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
-        Vector3 LocalScale = Vector3.one;
-        if (transform.position.x > player.position.x)
-        {
-            LocalScale.x = LocalScale.x * -1;
-        }
-        else
-        {
-            LocalScale.x = LocalScale.x * 1;
-        }
-        transform.localScale = LocalScale;
-    }
-
     public void LrAttack()
     {
-        Vector2 direction = player.position - transform.position;
+        Vector2 direction = Player.position - transform.position;
         shotPoint.right = direction;
         GameObject bullet = Instantiate(projectileWitch, shotPoint.position, Quaternion.identity);
         bullet.transform.right = direction;
@@ -107,16 +102,19 @@ public class Witch : ENEMY
     }
     public void SpecialAttack()
     {
-        if (!isSpawning)
+        if (AgroMode == true)
         {
-            StartCoroutine(SpawnDelay());
-        }
-        IEnumerator SpawnDelay()
-        {
-            isSpawning = true;
-            yield return new WaitForSeconds(spawnCooldown);
-            Instantiate(mushroom, transform.position, Quaternion.identity);
-            isSpawning = false;
+            if (!isSpawning)
+            {
+                StartCoroutine(SpawnDelay());
+            }
+            IEnumerator SpawnDelay()
+            {
+                isSpawning = true;
+                yield return new WaitForSeconds(spawnCooldown);
+                Instantiate(mushroom, transform.position, Quaternion.identity);
+                isSpawning = false;
+            }
         }
 
     }

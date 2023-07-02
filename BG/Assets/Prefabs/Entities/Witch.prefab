@@ -276,19 +276,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 50
-  speed: 0.1
-  agrodistance: 30
-  Damage: 20
-  HP: 50
-  speed: 0.1
-  agrodistance: 30
+  Speed: 0.07
+  agrodistance: 5
+  AgroMode: 1
   shotPoint: {fileID: 2692293766540550391}
   projectileWitch: {fileID: 6100122765259394683, guid: 2ce986afcca4c6c41ae4413e29685f10, type: 3}
   bat: {fileID: 7744018054365315360, guid: 9d4fda49f9a774b4685d85a171c04ecf, type: 3}
   mushroom: {fileID: 1975625690036998525, guid: 3ccca96410f6d244a8365e64b4266755, type: 3}
   spawnCooldown: 10
   bulletSpeed: 50
-  batCount: 4
   attackDelay: 2
 --- !u!95 &6325049819014061396
 Animator:
@@ -324,5 +320,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 50
-  speed: 0.1
+  Speed: 0
   agrodistance: 30
+  AgroMode: 1

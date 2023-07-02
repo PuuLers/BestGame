@@ -101,7 +101,6 @@ public class Player : MonoBehaviour
     public void TakeDamage(int Damage)
     {
         HealthPoint -= Damage;
-
     }
 
 

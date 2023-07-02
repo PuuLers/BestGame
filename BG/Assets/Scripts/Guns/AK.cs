@@ -17,7 +17,6 @@ public class AK : Gun
     {
         Bullet.Damage = Damage;
         Instantiate(bullet, shotPoint.position, transform.rotation);
-        animator.Play("shoot");
     }
 
 

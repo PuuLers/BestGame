@@ -16,6 +16,7 @@ TagManager:
   - Mushroom
   - Ice cyclops
   - projectileIce
+  - ENEMY
   layers:
   - Default
   - TransparentFX
