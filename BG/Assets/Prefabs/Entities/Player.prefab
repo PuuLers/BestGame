@@ -141,9 +141,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
+  animator: {fileID: 1562135828899223744}
+  FireSpeed: 3
   bullet: {fileID: 7561668970815862894, guid: b793217091fbe9e439337a395c045637, type: 3}
   shotPoint: {fileID: 1562135829264581893}
-  animator: {fileID: 1562135828899223744}
 --- !u!114 &405249723220797527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,6 +565,21 @@ MonoBehaviour:
   Speed: 10
   JoystickMove: {fileID: 0}
   JoystickGun: {fileID: 0}
+  Guns:
+  - {fileID: 1562135828899223757}
+  - {fileID: 8900594023884311028}
+  - {fileID: 3658968752729168211}
+  - {fileID: 325527264987277072}
+  - {fileID: 5797042539307034087}
+  - {fileID: 7789138124675343753}
+  - {fileID: 4397474874311991076}
+  - {fileID: 8310939379872777499}
+  - {fileID: 5404689640914748788}
+  - {fileID: 5894774583695561471}
+  - {fileID: 497720315621843449}
+  - {fileID: 7338593020726375959}
+  - {fileID: 3968606461095300761}
+  GunID: 0
 --- !u!1 &1923523945099520908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,7 +1288,8 @@ Transform:
   m_LocalPosition: {x: 0.367, y: 0.09, z: -0.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 896535544461074243}
   m_Father: {fileID: 4985427309768667920}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1680,6 +1697,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6529082450508598088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 896535544461074243}
+  m_Layer: 0
+  m_Name: Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &896535544461074243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6529082450508598088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.728, y: 0.055, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2792756583613425470}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7338593020726375959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,7 +2043,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4985427309768667920}
+  - component: {fileID: 518085073112404526}
   - component: {fileID: 3056980565329020097}
+  - component: {fileID: 7846951959730366051}
   m_Layer: 9
   m_Name: AKSU
   m_TagString: Untagged
@@ -2019,6 +2069,23 @@ Transform:
   m_Father: {fileID: 1562135830907209486}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &518085073112404526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8900594023884311028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb62a708d436104d8b9f6e2087c1376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JoystickGun: {fileID: 0}
+  animator: {fileID: 7846951959730366051}
+  FireSpeed: 2
+  bullet: {fileID: 7561668970815862894, guid: b793217091fbe9e439337a395c045637, type: 3}
+  shotPoint: {fileID: 896535544461074243}
 --- !u!114 &3056980565329020097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2032,3 +2099,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
+--- !u!95 &7846951959730366051
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8900594023884311028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

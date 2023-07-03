@@ -35,15 +35,15 @@ public class IceCyclops : ENEMY
     {
         if (AgroMode == true)
         {
-            animator.SetInteger("Cyclops states", 1);
+            //animator.SetInteger("Cyclops states", 1);
         }
         else
         {
-            animator.SetInteger("Cyclops states", 0);
+            //animator.SetInteger("Cyclops states", 0);
         }
         if (HP <= 0)
         {
-            animator.SetInteger("Cyclops states", 2);
+            //animator.SetInteger("Cyclops states", 2);
         }
     }
 

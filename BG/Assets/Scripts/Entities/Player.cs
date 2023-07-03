@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,13 +17,26 @@ public class Player : MonoBehaviour
     static public float HealthPoint = 100f;
     public float Speed = 10f;
     static public float playerFreeze;
-    private float freezeTime = 2f;
     private Rigidbody2D Rigidbody;
     private Vector2 MoveVector;
     private Animator anim;
     public Joystick JoystickMove;
     public Joystick JoystickGun;
     private SpriteRenderer sprite;
+    public GameObject[] Guns;
+    public int GunID;
+
+    private void RandomGun()
+    {
+        GunID = UnityEngine.Random.Range(0, 13);
+        if (GunID >= 0 && GunID < Guns.Length)
+        {
+            Guns[GunID].SetActive(true);
+        }
+    }
+
+
+
 
 
     private void ShowIndicators()
@@ -39,6 +53,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        //RandomGun();
         //инициализация компонентов 
         Rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -54,6 +69,7 @@ public class Player : MonoBehaviour
         //замедление во время стрельбы
         if (ShootingMode == true)
         {
+            anim.speed = 0.5f;
             Speed = ShootingSpeed;
             if (AK.rotZ < 0 || AK.rotZ > 180)
             {
@@ -66,6 +82,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            anim.speed = 1f;
             Speed = NormalizedSpeed;
         }
         IEnumerator DelayedPlayerFreeze()
@@ -119,11 +136,6 @@ public class Player : MonoBehaviour
     public void TakeDamage(int Damage)
     {
         HealthPoint -= Damage;
-    }
-
-    private void delay()
-    {
-        playerFreeze = 0;
     }
 
 

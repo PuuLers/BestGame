@@ -1,14 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class AK : Gun
+public class AKSU : Gun
 {
     public Animator animator;
     [Range(0.1f, 10f)]
-    public float FireSpeed = 1;
+    public float FireSpeed = 3;
     public GameObject bullet;
     public Transform shotPoint;
 
@@ -22,7 +20,7 @@ public class AK : Gun
     private void Update()
     {
         Animation();
-       
+
     }
     private void Animation()
     {

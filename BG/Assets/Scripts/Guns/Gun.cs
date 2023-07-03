@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-
+    public static int Damage = 10;
     [SerializeField] private Joystick JoystickGun;
     private float offset = 90;
     static public float rotZ;
     private float JoystickFireDistance = 0.7f;
+    
 
-    void Start()
-    {
-
-    }
 
     void Update()
     {
