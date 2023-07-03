@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7744018054365315422}
   - component: {fileID: 7744018054365315361}
+  - component: {fileID: 400661578550851832}
   - component: {fileID: 7744018054365315423}
   - component: {fileID: 7744018054365315420}
   m_Layer: 8
   m_Name: Bat
-  m_TagString: Bat
+  m_TagString: ENEMY
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,12 +48,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3591bf81d27ab084e995ffb0fe80fc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 15
   HP: 20
-  speed: 0.6
-  agrodistance: 0
+  Speed: 0.1
+  agrodistance: 5
+  AgroMode: 1
+  Damage: 15
   raycastDistance: 10
   attackDelay: 2
+--- !u!114 &400661578550851832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744018054365315360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65870f54bc8ca7429267d7a6190ff0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 20
+  Speed: 0.1
+  agrodistance: 5
+  AgroMode: 1
 --- !u!95 &7744018054365315423
 Animator:
   serializedVersion: 5
@@ -84,10 +102,10 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.050543547, y: 0.05164063}
+  m_Offset: {x: -0.02, y: 0.06}
   serializedVersion: 2
   m_Radius: 0.35432887
 --- !u!1 &7744018055625974850

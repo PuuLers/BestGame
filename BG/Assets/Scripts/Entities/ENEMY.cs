@@ -1,31 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ENEMY : MonoBehaviour
 {
+    protected bool Takedamage  = false;
     public int HP;
     public float Speed;
     public float agrodistance;
     private float distance;
     public bool AgroMode = true;
-    protected Transform Player;
-
+    protected Transform player;
+    
 
     private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
 
     public void TakeDamage(int Damage)
     {
         HP -= Damage;
+        Takedamage = true;
     }
 
     public void DistanceCheck()
     {
-        distance = Vector3.Distance(Player.position, transform.position);
+        distance = Vector3.Distance(player.position, transform.position);
         if (distance < agrodistance)
         {
             AgroMode = true;
@@ -38,25 +41,24 @@ public class ENEMY : MonoBehaviour
 
     protected void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, Player.position, Speed * Time.fixedDeltaTime);
-        Vector3 LocalScale = Vector3.one;
-        if (transform.position.x > Player.position.x)
+        if (AgroMode == true)
         {
-            LocalScale.x = LocalScale.x * -1;
+            transform.position = Vector2.MoveTowards(transform.position, player.position, Speed * Time.fixedDeltaTime);
+            Vector3 LocalScale = Vector3.one;
+            if (transform.position.x > player.position.x)
+            {
+                LocalScale.x = LocalScale.x * -1;
+            }
+            else
+            {
+                LocalScale.x = LocalScale.x * 1;
+            }
+            transform.localScale = LocalScale;
         }
-        else
-        {
-            LocalScale.x = LocalScale.x * 1;
-        }
-        transform.localScale = LocalScale;
     }
 
     protected void Death()
     {
-        if (AgroMode == true)
-        {
-            Move();
-        }
         if (HP <= 0)
         {
             AgroMode = false;

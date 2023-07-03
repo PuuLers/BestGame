@@ -20,18 +20,6 @@ public class Bullet : MonoBehaviour
             {
                 hitinfo.collider.GetComponent<TargetHuman>().TakeDamage(Damage);
             }
-            else if (hitinfo.collider.CompareTag("Mouse"))
-            {
-                hitinfo.collider.GetComponent<Mouse>().TakeDamage(Damage);
-            }
-            else if (hitinfo.collider.CompareTag("Bat"))
-            {
-                hitinfo.collider.GetComponent<Bat>().TakeDamage(Damage);
-            }
-            else if (hitinfo.collider.CompareTag("Slug"))
-            {
-                hitinfo.collider.GetComponent<Slug>().TakeDamage(Damage);
-            }
             else if (hitinfo.collider.CompareTag("ENEMY"))
             {
                 hitinfo.collider.GetComponent<ENEMY>().TakeDamage(Damage);

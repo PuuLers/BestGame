@@ -23,7 +23,7 @@ public class Witch : ENEMY
     private void Start()
     {
         animator = GetComponent<Animator>();
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     private void Animation()
@@ -48,6 +48,8 @@ public class Witch : ENEMY
         Death();
         Animation();
         DistanceCheck();
+        BATDEF();
+        Move();
     }
 
     private void Attack()
@@ -71,7 +73,19 @@ public class Witch : ENEMY
     }
 
 
-
+    void BATDEF()
+    {
+        if (Takedamage == true)
+        {
+            if (Time.time > nextAttackTime)
+            {
+                SpawnBats();
+                bat.transform.parent = null;
+                nextAttackTime = Time.time + attackDelay;
+                Takedamage = false;
+            }
+        }
+    }
 
     void SpawnBats()
     {
@@ -80,20 +94,11 @@ public class Witch : ENEMY
             Vector3 batPosition = transform.position + new Vector3(Random.Range(-2f, 2f), Random.Range(-1f, 1f), 0);
             Instantiate(bat, batPosition, Quaternion.identity);
         }
-        if (AgroMode == true)
-        {
-            if (Time.time > nextAttackTime)
-            {
-                SpawnBats();
-                bat.transform.parent = null;
-                nextAttackTime = Time.time + attackDelay;
-            }
-        }
     }
 
     public void LrAttack()
     {
-        Vector2 direction = Player.position - transform.position;
+        Vector2 direction = player.position - transform.position;
         shotPoint.right = direction;
         GameObject bullet = Instantiate(projectileWitch, shotPoint.position, Quaternion.identity);
         bullet.transform.right = direction;

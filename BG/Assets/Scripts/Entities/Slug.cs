@@ -3,14 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class Slug : MonoBehaviour
+public class Slug : ENEMY
 {
     public int Damage = 10;
-    public int HP = 10;
-    public float speed;
-    public float agrodistance;
-    private float distance;
-    private bool AgroMode = false;
     private bool isAttacking = false;
     public float raycastDistance = 10f;
     public float CloseAttackDelay = 2f;
@@ -21,7 +16,7 @@ public class Slug : MonoBehaviour
     private float fireCooldown = 0.6f;
     public float bulletSpeed;
     public Transform shotPoint;
-    private Transform player;
+    
 
 
 
@@ -31,17 +26,34 @@ public class Slug : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
+    private void Animation()
+    {
+        if (HP > 0)
+        {
+            animator.SetInteger("Slug states", 0);
+        }
+        else
+        {
+            animator.SetInteger("Slug states", 1);
+        }
+    }
+
     private void Update()
     {
+        Attack();
+        Death();
+        Animation();
         DistanceCheck();
+        Move();
+    }
 
+
+
+    public void Attack()
+    {
         if (AgroMode == true)
         {
-            Move();
             closeAttack();
-
-
-
             if (!isAttacking)
             {
                 StartCoroutine(AttackDelay());
@@ -54,45 +66,7 @@ public class Slug : MonoBehaviour
                 isAttacking = false;
             }
         }
-        if (HP <= 0)
-        {
-            animator.SetInteger("Slug states", 1);
-            AgroMode = false;
-            agrodistance = 0;
-        }
-    }
 
-    public void TakeDamage(int Damage)
-    {
-        HP -= Damage;
-    }
-
-    public void DistanceCheck()
-    {
-        distance = Vector3.Distance(player.position, transform.position);
-        if (distance < agrodistance)
-        {
-            AgroMode = true;
-        }
-        else
-        {
-            AgroMode = false;
-        }
-    }
-
-    private void Move()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
-        Vector3 LocalScale = Vector3.one;
-        if (transform.position.x > player.position.x)
-        {
-            LocalScale.x = LocalScale.x * -1;
-        }
-        else
-        {
-            LocalScale.x = LocalScale.x * 1;
-        }
-        transform.localScale = LocalScale;
     }
 
     public void closeAttack()

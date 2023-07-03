@@ -3,93 +3,70 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-    public class Bat : MonoBehaviour
+public class Bat : ENEMY
+{
+    public int Damage = 15;
+    private Animator animator;
+    public float raycastDistance = 10f;
+    public float attackDelay = 2f;
+    private float nextAttackTime = 0f;
+
+
+
+   
+
+    void Start()
     {
-        public int Damage = 15;
-        public int HP = 20;
-        private Transform player;
-        public float speed;
-        public float agrodistance;
-        private float distance;
-        private Animator animator;
-        private bool AgroMode = true;
-        public float raycastDistance = 10f;
-        public float attackDelay = 2f;
-        private float nextAttackTime = 0f;
+        animator = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
 
-        public void TakeDamage(int Damage)
-        {
-            HP -= Damage;
-        }
-
-
-        private void Move()
-        {
-          transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
-          if (player.position.x > transform.position.x)
-          {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, -15f);
-          }
-          else
-          {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 15f);
-          }
-        }  
-
-
-        void Start()
-        {
-            animator = GetComponent<Animator>();
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        }
-
-        void Update()
-        {
-            DistanceCheck();
-            if (AgroMode == true)
-            {
-                Move();
-                Attack();               
-            }
-            if (HP <= 0)
-            {
-                animator.SetInteger("Bat states", 1);
-                AgroMode = false;
-                agrodistance = 0;
-            }
-        }
+    void Update()
+    {
+        DistanceCheck();
+        Death();
+        Attack();
+        animAnimation();
+        Move();
+    }
 
 
     public void Attack()
     {
-        Vector2 raycastOrigin = transform.position;
-        Vector2 raycastDirection = transform.right;
-        RaycastHit2D hitinfo = Physics2D.Raycast(raycastOrigin, raycastDirection, raycastDistance);
-        if (hitinfo.collider != null)
+        if (AgroMode == true)
         {
-            if (hitinfo.collider.CompareTag("Player"))
+            Vector2 raycastOrigin = transform.position;
+            Vector2 raycastDirection = transform.right;
+            RaycastHit2D hitinfo = Physics2D.Raycast(raycastOrigin, raycastDirection, raycastDistance);
+            if (hitinfo.collider != null)
             {
-                if (Time.time > nextAttackTime)
+                if (hitinfo.collider.CompareTag("Player"))
                 {
-                    Player.HealthPoint -= Damage;
-                    nextAttackTime = Time.time + attackDelay;
+                    if (Time.time > nextAttackTime)
+                    {
+                        Player.HealthPoint -= Damage;
+                        nextAttackTime = Time.time + attackDelay;
+                    }
                 }
             }
         }
-
     }
 
-    public void DistanceCheck()
+    private void animAnimation()
     {
-        distance = Vector3.Distance(player.position, transform.position);
-        if (distance < agrodistance)
+        if (player.position.x > transform.position.x)
         {
-            AgroMode = true;
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, -15f);
         }
         else
         {
-            AgroMode = false;
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 15f);
+        }
+        if (HP <= 0)
+        {
+            animator.SetInteger("Bat states", 1);
         }
     }
 
-}   
+
+}

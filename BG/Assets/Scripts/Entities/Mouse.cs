@@ -5,42 +5,13 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class Mouse : MonoBehaviour
+public class Mouse : ENEMY
 {
     public int Damage = 10;
-    public int HP = 10;
-    private Transform player;
-    public float speed;
-    public float agrodistance;
-    private float distance;
     private Animator animator;
-    private bool AgroMode = false;
     public float raycastDistance = 10f;
-    public float attackDelay = 2f; 
+    public float attackDelay = 2f;
     private float nextAttackTime = 0f;
-
-
-
-    public void TakeDamage(int Damage)
-    {
-        HP -= Damage;
-    }
-
-
-    private void Move()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
-        Vector3 LocalScale = Vector3.one;
-        if (transform.position.x > player.position.x)
-        {
-            LocalScale.x = LocalScale.x * 1;
-        }
-        else
-        {
-            LocalScale.x = LocalScale.x * -1;
-        }
-        transform.localScale = LocalScale;
-    }
 
 
     void Start()
@@ -51,51 +22,46 @@ public class Mouse : MonoBehaviour
 
     void Update()
     {
+        Attack();
+        Death();
+        Animation();
         DistanceCheck();
-        if (AgroMode == true)
-        {
-            Move();
-            Attack();
-        }
-        if (HP <= 0)
-        {
-            animator.SetInteger("Mouse states", 1);
-            AgroMode = false;
-            agrodistance = 0;
-        }
-        
+        Move();
     }
 
     public void Attack()
     {
-        Vector2 raycastOrigin = transform.position;
-        Vector2 raycastDirection = transform.right;
-        RaycastHit2D hitinfo = Physics2D.Raycast(raycastOrigin, raycastDirection, raycastDistance);
-        if (hitinfo.collider != null)
+        if (AgroMode == true)
         {
-            if (hitinfo.collider.CompareTag("Player"))
+            Vector2 raycastOrigin = transform.position;
+            Vector2 raycastDirection = transform.right;
+            RaycastHit2D hitinfo = Physics2D.Raycast(raycastOrigin, raycastDirection, raycastDistance);
+            if (hitinfo.collider != null)
             {
-                if (Time.time > nextAttackTime)
+                if (hitinfo.collider.CompareTag("Player"))
                 {
-                    Player.HealthPoint -= Damage;
-                    nextAttackTime = Time.time + attackDelay;
+                    if (Time.time > nextAttackTime)
+                    {
+                        Player.HealthPoint -= Damage;
+                        nextAttackTime = Time.time + attackDelay;
+                    }
                 }
             }
         }
 
     }
 
-
-    public void DistanceCheck()
+    private void Animation()
     {
-        distance = Vector3.Distance(player.position, transform.position);
-        if (distance < agrodistance)
+        if (AgroMode == true)
         {
-            AgroMode = true;
+            animator.SetInteger("Mouse states", 0);
         }
-        else
+        if (HP <= 0)
         {
-           AgroMode = false;
+            animator.SetInteger("Mouse states", 1);
         }
-    }        
+    }
 }
+
+
