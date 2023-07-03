@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     static public float HealthPoint = 100f;
     public float Speed = 10f;
     static public float playerFreeze;
+    private float freezeTime = 2f;
     private Rigidbody2D Rigidbody;
     private Vector2 MoveVector;
     private Animator anim;
@@ -54,7 +55,7 @@ public class Player : MonoBehaviour
         if (ShootingMode == true)
         {
             Speed = ShootingSpeed;
-            if(AK.rotZ < 0 || AK.rotZ > 180)
+            if (AK.rotZ < 0 || AK.rotZ > 180)
             {
                 sprite.flipX = true;
             }
@@ -67,7 +68,22 @@ public class Player : MonoBehaviour
         {
             Speed = NormalizedSpeed;
         }
-        
+        IEnumerator DelayedPlayerFreeze()
+        {
+            yield return new WaitForSeconds(2f);
+            playerFreeze = 0;
+        }
+
+        if (playerFreeze > 0)
+        {
+            Speed -= playerFreeze;
+        }
+
+        if (playerFreeze == 5)
+        {
+            StartCoroutine(DelayedPlayerFreeze());
+            Speed = 0;
+        }
         //проверка здоровья
         if (HealthPoint <= 0)
         {
@@ -95,7 +111,7 @@ public class Player : MonoBehaviour
         }
 
     }
-    
+
     private void FixedUpdate()
     {
         Rigidbody.MovePosition(Rigidbody.position + MoveVector * Speed * Time.fixedDeltaTime);
@@ -104,6 +120,12 @@ public class Player : MonoBehaviour
     {
         HealthPoint -= Damage;
     }
+
+    private void delay()
+    {
+        playerFreeze = 0;
+    }
+
 
 
 

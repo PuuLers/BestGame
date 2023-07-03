@@ -18,6 +18,7 @@ public class projectileIce : MonoBehaviour
             if (hitinfo.collider.CompareTag("Player"))
             {
                 hitinfo.collider.GetComponent<Player>().TakeDamage(Damage);
+                Player.playerFreeze += 1f;
             }
             Destroy(gameObject);
         }

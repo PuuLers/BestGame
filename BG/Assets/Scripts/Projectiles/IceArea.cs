@@ -12,4 +12,11 @@ public class IceArea : IceCyclops
         Player.playerFreeze += 1f;
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+
+        }
+    }
 }
