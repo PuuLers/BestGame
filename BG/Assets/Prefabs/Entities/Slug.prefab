@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 3888206987205295632}
   - component: {fileID: 3888206987205295633}
   - component: {fileID: 3888206987205295647}
+  - component: {fileID: 6024729411587399090}
   - component: {fileID: 7287936095752062971}
   m_Layer: 8
   m_Name: Slug
@@ -190,6 +191,22 @@ MonoBehaviour:
   startTimeBtwShots: 1
   bulletSpeed: 15
   shotPoint: {fileID: 3888206986828457187}
+--- !u!114 &6024729411587399090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3888206987205295634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65870f54bc8ca7429267d7a6190ff0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
+  Speed: 0
+  agrodistance: 0
+  AgroMode: 1
 --- !u!95 &7287936095752062971
 Animator:
   serializedVersion: 5

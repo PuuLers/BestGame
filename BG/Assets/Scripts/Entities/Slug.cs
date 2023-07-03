@@ -49,7 +49,7 @@ public class Slug : ENEMY
 
 
 
-    public void Attack()
+    private void Attack()
     {
         if (AgroMode == true)
         {
@@ -69,7 +69,7 @@ public class Slug : ENEMY
 
     }
 
-    public void closeAttack()
+    private void closeAttack()
     {
         Vector2 raycastOrigin = transform.position;
         Vector2 raycastDirection = transform.right;
@@ -88,7 +88,7 @@ public class Slug : ENEMY
 
     }
 
-    public void LrAttack()
+    private void LrAttack()
     {
        Vector2 direction = player.position - transform.position;
        shotPoint.right = direction;

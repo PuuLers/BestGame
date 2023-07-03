@@ -72,7 +72,7 @@ public class Witch : ENEMY
         }
     }
 
-    void BATDEF()
+    private void BATDEF()
     {
         if (Takedamage == true)
         {
@@ -86,7 +86,7 @@ public class Witch : ENEMY
         }
     }
 
-    void SpawnBats()
+    private void SpawnBats()
     {
         for (int i = 0; i < 4; i++)
         {
