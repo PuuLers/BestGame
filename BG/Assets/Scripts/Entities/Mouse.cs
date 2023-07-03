@@ -7,7 +7,6 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Mouse : ENEMY
 {
-    public int Damage = 10;
     private Animator animator;
     public float raycastDistance = 10f;
     public float attackDelay = 2f;

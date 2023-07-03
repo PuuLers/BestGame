@@ -5,18 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
-  - Mouse
-  - TargetHuman
-  - Bat
   - Wall
-  - Slug
-  - projectileSlug
-  - Witch
-  - projectileWitch
-  - Mushroom
-  - Ice cyclops
   - projectileIce
   - ENEMY
+  - projectileWitch
+  - Mushroom
+  - projectileSlug
+  - IceArea
+  - Ice cyclops
   layers:
   - Default
   - TransparentFX

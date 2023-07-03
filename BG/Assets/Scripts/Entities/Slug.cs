@@ -5,7 +5,6 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Slug : ENEMY
 {
-    public int Damage = 10;
     private bool isAttacking = false;
     public float raycastDistance = 10f;
     public float CloseAttackDelay = 2f;

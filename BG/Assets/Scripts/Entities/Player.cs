@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     static public bool ShootingMode = false;
     static public float HealthPoint = 100f;
     public float Speed = 10f;
+    static public float playerFreeze;
     private Rigidbody2D Rigidbody;
     private Vector2 MoveVector;
     private Animator anim;
@@ -66,6 +67,7 @@ public class Player : MonoBehaviour
         {
             Speed = NormalizedSpeed;
         }
+        
         //проверка здоровья
         if (HealthPoint <= 0)
         {

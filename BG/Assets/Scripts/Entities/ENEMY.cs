@@ -7,6 +7,7 @@ public class ENEMY : MonoBehaviour
 {
     protected bool Takedamage  = false;
     public int HP;
+    public int Damage;
     public float Speed;
     public float agrodistance;
     private float distance;

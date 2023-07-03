@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Bat : ENEMY
 {
-    public int Damage = 15;
     private Animator animator;
     public float raycastDistance = 10f;
     public float attackDelay = 2f;

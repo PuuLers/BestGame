@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class IceArea : MonoBehaviour
+public class IceArea : IceCyclops
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private void Hit()
     {
-        
+        Player.HealthPoint -= 10;
+        Player.playerFreeze += 1f;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
