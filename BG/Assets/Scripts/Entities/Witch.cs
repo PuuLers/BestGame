@@ -72,7 +72,6 @@ public class Witch : ENEMY
         }
     }
 
-
     void BATDEF()
     {
         if (Takedamage == true)
