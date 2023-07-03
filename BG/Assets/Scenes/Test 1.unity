@@ -184,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2692293767660219965, guid: 5bcfb7bb8ac0ab04cb7e301ffa3faa35, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bcfb7bb8ac0ab04cb7e301ffa3faa35, type: 3}
@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7744018054365315360, guid: 9d4fda49f9a774b4685d85a171c04ecf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7744018054365315422, guid: 9d4fda49f9a774b4685d85a171c04ecf, type: 3}
       propertyPath: m_RootOrder
@@ -425,11 +425,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685ed93192f0edc45bef86466844cbc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
   HP: 10
-  speed: 0.07
+  Damage: 10
+  Speed: 0
   agrodistance: 0
+  AgroMode: 0
   startTimeBtwAttack: 2
+  bulletSpeed: 0
+  shotPoint: {fileID: 0}
+  projectileIce: {fileID: 0}
+  IceArea: {fileID: 0}
+  isAttacking: 0
 --- !u!212 &216131722
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -812,12 +818,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5951c09a1c8864cb20e9323bebce1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 0
   Damage: 10
+  Speed: 0
   agrodistance: 30
-  projectileIce: {fileID: 51644261}
-  startTimeBtwShots: 3
+  AgroMode: 0
+  startTimeBtwAttack: 0
   bulletSpeed: 15
   shotPoint: {fileID: 1740545355}
+  projectileIce: {fileID: 51644261}
+  IceArea: {fileID: 0}
+  isAttacking: 0
 --- !u!1 &402362149
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,7 +970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7591333913916647055, guid: 8d98a5e35bb7d7c43ae2ae05538e9cb8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d98a5e35bb7d7c43ae2ae05538e9cb8, type: 3}
@@ -976,7 +987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4668091010888528019, guid: 4880dffc7be77f247adfddafcaa38ab7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4668091010888528022, guid: 4880dffc7be77f247adfddafcaa38ab7, type: 3}
       propertyPath: m_RootOrder
@@ -1046,6 +1057,10 @@ PrefabInstance:
       propertyPath: JoystickGun
       value: 
       objectReference: {fileID: 724620558}
+    - target: {fileID: 325527264987277072, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 352495232657516138, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: JoystickGun
       value: 
@@ -1054,6 +1069,10 @@ PrefabInstance:
       propertyPath: JoystickGun
       value: 
       objectReference: {fileID: 724620558}
+    - target: {fileID: 497720315621843449, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 607047154810124336, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: JoystickGun
       value: 
@@ -1170,9 +1189,17 @@ PrefabInstance:
       propertyPath: JoystickGun
       value: 
       objectReference: {fileID: 724620558}
+    - target: {fileID: 3658968752729168211, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3880564838849585321, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968606461095300761, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4145970163169113524, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: JoystickGun
@@ -1182,6 +1209,14 @@ PrefabInstance:
       propertyPath: JoystickGun
       value: 
       objectReference: {fileID: 724620558}
+    - target: {fileID: 5404689640914748788, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797042539307034087, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5986931775831152686, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: JoystickGun
       value: 
@@ -1198,10 +1233,18 @@ PrefabInstance:
       propertyPath: JoystickGun
       value: 
       objectReference: {fileID: 724620558}
+    - target: {fileID: 8310939379872777499, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8640189262146536753, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: JoystickGun
       value: 
       objectReference: {fileID: 724620558}
+    - target: {fileID: 8900594023884311028, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
 --- !u!1 &855121778 stripped
@@ -1508,7 +1551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3888206987205295634, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 002f9d00b6bfa7d4c9fa4e84539076be, type: 3}

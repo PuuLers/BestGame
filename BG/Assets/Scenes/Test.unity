@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 292263364}
   - component: {fileID: 292263363}
   - component: {fileID: 292263365}
+  - component: {fileID: 292263366}
   m_Layer: 0
   m_Name: Ice area
   m_TagString: IceArea
@@ -397,6 +398,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &292263366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292263362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bd8cdd32bd7844b9b3311dd3aa9a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
+  Damage: 0
+  Speed: 0
+  agrodistance: 0
+  AgroMode: 1
+  startTimeBtwAttack: 0
+  bulletSpeed: 0
+  shotPoint: {fileID: 0}
+  projectileIce: {fileID: 0}
+  IceArea: {fileID: 0}
+  isAttacking: 0
 --- !u!1 &302886260
 GameObject:
   m_ObjectHideFlags: 0
