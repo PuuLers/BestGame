@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("ТЫ СДОХ НАХУЙ");
         }
-        //реализация поворота и джостика
+        //реализация поворота и джойстика
         MoveVector.x = JoystickMove.Horizontal;
         MoveVector.y = JoystickMove.Vertical;
         if (MoveVector.x > 0f && !ShootingMode)

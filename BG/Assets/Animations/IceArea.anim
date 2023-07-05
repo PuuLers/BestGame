@@ -73,7 +73,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 1.3333334
-    functionName: Hit
+    functionName: OnTriggerStay2D
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

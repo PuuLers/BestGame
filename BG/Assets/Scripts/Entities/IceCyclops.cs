@@ -29,21 +29,22 @@ public class IceCyclops : ENEMY
         Move();
         Death();
         Animation();
+        SpecialAttack();
     }
 
     private void Animation()
     {
         if (AgroMode == true)
         {
-            //animator.SetInteger("Cyclops states", 1);
+            animator.SetTrigger("Run");
         }
-        else
+        else if (AgroMode == false || HP > 0)
         {
-            //animator.SetInteger("Cyclops states", 0);
+            animator.SetTrigger("Idle");
         }
         if (HP <= 0)
         {
-            //animator.SetInteger("Cyclops states", 2);
+            animator.SetTrigger("Die");
         }
     }
 
@@ -51,7 +52,7 @@ public class IceCyclops : ENEMY
     {
         Player.HealthPoint -= Damage;
         timeBtwAttack = startTimeBtwAttack;
-    }//вызывается в анимации и ледяной зоне
+    }//вызывается в анимации
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -92,6 +93,10 @@ public class IceCyclops : ENEMY
             IEnumerator SpawnDelay()
             {
                 isSpawning = true;
+                if (isSpawning == true)
+                {
+                    animator.SetTrigger("specialAttack");
+                }
                 yield return new WaitForSeconds(spawnCooldown);
                 for (int i = 0; i < 4; i++)
                 {
@@ -107,7 +112,6 @@ public class IceCyclops : ENEMY
     {
         if (AgroMode == true)
         {
-            SpecialAttack();
 
             if (!isAttacking)
             {

@@ -160,11 +160,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685ed93192f0edc45bef86466844cbc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
   HP: 10
-  speed: 0.07
+  Damage: 10
+  Speed: 0
   agrodistance: 20
+  AgroMode: 1
   startTimeBtwAttack: 2
+  bulletSpeed: 0
+  shotPoint: {fileID: 4440280401042873780}
+  projectileIce: {fileID: 0}
+  IceArea: {fileID: 0}
+  isAttacking: 0
 --- !u!95 &4440280400586434676
 Animator:
   serializedVersion: 5
@@ -379,12 +385,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5951c09a1c8864cb20e9323bebce1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 0
   Damage: 10
+  Speed: 0
   agrodistance: 30
-  projectileIce: {fileID: 0}
-  startTimeBtwShots: 3
+  AgroMode: 1
+  startTimeBtwAttack: 0
   bulletSpeed: 15
   shotPoint: {fileID: 4440280401042873780}
+  projectileIce: {fileID: 0}
+  IceArea: {fileID: 0}
+  isAttacking: 0
 --- !u!1 &4440280401042873781
 GameObject:
   m_ObjectHideFlags: 0

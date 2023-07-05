@@ -532,6 +532,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &774766120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4440280400727864781, guid: bab0e55418af3a44db5861a7f8180edd, type: 3}
+  m_PrefabInstance: {fileID: 4440280400399728895}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &774766125
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774766120}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95d3b528a87f3f140947a93a8eee40d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &855121777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1086,6 +1112,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4440280400586434678, guid: bab0e55418af3a44db5861a7f8180edd, type: 3}
+      propertyPath: IceArea
+      value: 
+      objectReference: {fileID: 292263362}
+    - target: {fileID: 4440280400586434678, guid: bab0e55418af3a44db5861a7f8180edd, type: 3}
+      propertyPath: projectileIce
+      value: 
+      objectReference: {fileID: 51644261}
     - target: {fileID: 4440280400586434679, guid: bab0e55418af3a44db5861a7f8180edd, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1135,12 +1169,28 @@ PrefabInstance:
       value: Ice cyclops
       objectReference: {fileID: 0}
     - target: {fileID: 4440280400586434681, guid: bab0e55418af3a44db5861a7f8180edd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440280400586434681, guid: bab0e55418af3a44db5861a7f8180edd, type: 3}
       propertyPath: m_TagString
       value: ENEMY
       objectReference: {fileID: 0}
     - target: {fileID: 4440280400727864777, guid: bab0e55418af3a44db5861a7f8180edd, type: 3}
+      propertyPath: IceArea
+      value: 
+      objectReference: {fileID: 292263362}
+    - target: {fileID: 4440280400727864777, guid: bab0e55418af3a44db5861a7f8180edd, type: 3}
       propertyPath: projectileIce
       value: 
       objectReference: {fileID: 51644261}
+    - target: {fileID: 4440280401042873780, guid: bab0e55418af3a44db5861a7f8180edd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.028
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440280401042873780, guid: bab0e55418af3a44db5861a7f8180edd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.265
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bab0e55418af3a44db5861a7f8180edd, type: 3}

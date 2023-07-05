@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class IceArea : IceCyclops
 {
-
     private void Hit()
     {
         Player.HealthPoint -= 10;
@@ -16,7 +15,7 @@ public class IceArea : IceCyclops
     {
         if (other.CompareTag("Player"))
         {
-
+            Hit();
         }
     }
 }
