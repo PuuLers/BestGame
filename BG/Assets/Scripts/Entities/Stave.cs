@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Stave : IceCyclops
 {
-    private void Update()
+    private IceCyclops cyclopsController;
+
+    private void Start()
     {
-        Attack();
+        cyclopsController = GetComponentInParent<IceCyclops>();
     }
 
-
-}
+    private void Update()
+    {
+        Debug.Log(cyclopsController.AgroMode);
+    }
+}       

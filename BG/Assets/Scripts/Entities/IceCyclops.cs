@@ -29,7 +29,6 @@ public class IceCyclops : ENEMY
         Move();
         Death();
         Animation();
-        SpecialAttack();
     }
 
     private void Animation()
@@ -37,6 +36,20 @@ public class IceCyclops : ENEMY
         if (AgroMode == true)
         {
             animator.SetTrigger("Run");
+            if (!isSpawning)
+            {
+                StartCoroutine(SpawnDelay());
+            }
+            IEnumerator SpawnDelay()
+            {
+                isSpawning = true;
+                if (isSpawning == true)
+                {
+                    animator.SetTrigger("specialAttack");
+                }
+                yield return new WaitForSeconds(spawnCooldown);
+                isSpawning = false;
+            }
         }
         else if (AgroMode == false || HP > 0)
         {
@@ -46,7 +59,9 @@ public class IceCyclops : ENEMY
         {
             animator.SetTrigger("Die");
         }
+
     }
+
 
     protected void closeAttack()
     {
@@ -56,20 +71,24 @@ public class IceCyclops : ENEMY
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (AgroMode == true)
         {
-            if (timeBtwAttack <= 0)
+            if (other.CompareTag("Player"))
             {
-               animator.Play("IceCyclops_meleeAttack");
-               Speed = 0;
-                
+                if (timeBtwAttack <= 0)
+                {
+                    animator.Play("IceCyclops_meleeAttack");
+                    Speed = 0;
+
+                }
+                else
+                {
+                    timeBtwAttack -= Time.deltaTime;
+                    Speed = 0.07f;
+                }
             }
-            else
-            {
-                timeBtwAttack -= Time.deltaTime;
-                Speed = 0.07f;
-            }
-        }   
+        }
+
     }
 
     protected void LrAttack()
@@ -84,27 +103,10 @@ public class IceCyclops : ENEMY
 
     protected void SpecialAttack()
     {
-        if (AgroMode == true)
+        for (int i = 0; i < 4; i++)
         {
-            if (!isSpawning)
-            {
-                StartCoroutine(SpawnDelay());
-            }
-            IEnumerator SpawnDelay()
-            {
-                isSpawning = true;
-                if (isSpawning == true)
-                {
-                    animator.SetTrigger("specialAttack");
-                }
-                yield return new WaitForSeconds(spawnCooldown);
-                for (int i = 0; i < 4; i++)
-                {
-                    Vector3 icePosition = player.transform.position + new Vector3(Random.Range(-2f, 2f), Random.Range(-1f, 1f), 0);
-                    Instantiate(IceArea, icePosition, Quaternion.identity);
-                }
-                isSpawning = false;
-            }
+            Vector3 icePosition = player.transform.position + new Vector3(Random.Range(-2f, 2f), Random.Range(-1f, 1f), 0);
+            Instantiate(IceArea, icePosition, Quaternion.identity);
         }
     }
 

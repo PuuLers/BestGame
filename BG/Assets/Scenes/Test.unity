@@ -1184,6 +1184,10 @@ PrefabInstance:
       propertyPath: projectileIce
       value: 
       objectReference: {fileID: 51644261}
+    - target: {fileID: 4440280400727864781, guid: bab0e55418af3a44db5861a7f8180edd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4440280401042873780, guid: bab0e55418af3a44db5861a7f8180edd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.028
