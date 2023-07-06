@@ -569,6 +569,10 @@ PrefabInstance:
       propertyPath: JoystickGun
       value: 
       objectReference: {fileID: 724620558}
+    - target: {fileID: 325527264987277072, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 352495232657516138, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: JoystickGun
       value: 
@@ -582,6 +586,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 724620558}
     - target: {fileID: 607047154810124336, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: JoystickGun
+      value: 
+      objectReference: {fileID: 724620558}
+    - target: {fileID: 895902103847070977, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: JoystickGun
       value: 
       objectReference: {fileID: 724620558}
@@ -635,7 +643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1562135829481690325, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.57
+      value: 0.389
       objectReference: {fileID: 0}
     - target: {fileID: 1562135830907209461, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: m_Icon
@@ -709,10 +717,6 @@ PrefabInstance:
       propertyPath: JoystickGun
       value: 
       objectReference: {fileID: 724620558}
-    - target: {fileID: 2792756583613425470, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.367
-      objectReference: {fileID: 0}
     - target: {fileID: 3056980565329020097, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: JoystickGun
       value: 
@@ -720,6 +724,10 @@ PrefabInstance:
     - target: {fileID: 3427840428621167728, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: m_RootOrder
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658968752729168211, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3877378766169371722, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: m_Sprite
@@ -737,13 +745,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4504390161994537887, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1304293228, guid: b488c734a896fe94fb5f5cbfc675aa86, type: 3}
     - target: {fileID: 4552174256130127783, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 4697341839754445146, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 67de714e2ff94974aa6856632fc6acaf, type: 2}
     - target: {fileID: 4742993701128228287, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911265914912502796, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 4985427309768667920, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: m_RootOrder
@@ -762,8 +782,12 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5116488254533582514, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116488254533582514, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5237972116060249347, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: JoystickGun
@@ -793,6 +817,14 @@ PrefabInstance:
       propertyPath: JoystickGun
       value: 
       objectReference: {fileID: 724620558}
+    - target: {fileID: 6722797694166446110, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722797694166446110, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.064
+      objectReference: {fileID: 0}
     - target: {fileID: 7808308530400067679, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -805,13 +837,21 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8056298806308260132, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.204
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056298806308260132, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.033
+      objectReference: {fileID: 0}
     - target: {fileID: 8640189262146536753, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: JoystickGun
       value: 
       objectReference: {fileID: 724620558}
     - target: {fileID: 8900594023884311028, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c38a4e4525c65845ba38af50efbbcd3, type: 3}
