@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class IceArea : IceCyclops
 {
+
+    private void Start()
+    {
+        Destroy(gameObject, 5f);
+    }
     private void Hit()
     {
         Player.HealthPoint -= 10;

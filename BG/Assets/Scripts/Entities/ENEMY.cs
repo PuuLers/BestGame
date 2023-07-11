@@ -11,6 +11,7 @@ public class ENEMY : MonoBehaviour
     public float Speed;
     public float agrodistance;
     private float distance;
+    private float distanceToKeep;
     public bool AgroMode = true;
     protected Transform player;
     
@@ -64,6 +65,26 @@ public class ENEMY : MonoBehaviour
         {
             AgroMode = false;
             agrodistance = 0;
+        }
+    }
+
+    private void Move2()
+    { 
+        float distance = Vector2.Distance(transform.position, player.position);
+        if (distance < distanceToKeep)
+        {
+            Vector2 direction = (transform.position - player.position).normalized;
+            transform.Translate(direction * Speed * Time.deltaTime);
+            Vector3 LocalScale = Vector3.one;
+            if (transform.position.x > player.position.x)
+            {
+                LocalScale.x = LocalScale.x * -1;
+            }
+            else
+            {
+                LocalScale.x = LocalScale.x * 1;
+            }
+            transform.localScale = LocalScale;
         }
     }
 

@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 4440280400586434676}
   - component: {fileID: 4440280400586434677}
   - component: {fileID: 4440280400586434675}
+  - component: {fileID: 6603986780956100280}
   m_Layer: 8
   m_Name: Ice cyclops
   m_TagString: Ice cyclops
@@ -166,7 +167,7 @@ MonoBehaviour:
   agrodistance: 20
   AgroMode: 1
   startTimeBtwAttack: 2
-  bulletSpeed: 0
+  bulletSpeed: 50
   shotPoint: {fileID: 4440280401042873780}
   projectileIce: {fileID: 0}
   IceArea: {fileID: 0}
@@ -260,6 +261,23 @@ CircleCollider2D:
   m_Offset: {x: 0.03958702, y: -0.31274438}
   serializedVersion: 2
   m_Radius: 1.1136138
+--- !u!114 &6603986780956100280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4440280400586434681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65870f54bc8ca7429267d7a6190ff0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
+  Damage: 0
+  Speed: 0
+  agrodistance: 0
+  AgroMode: 1
 --- !u!1 &4440280400727864781
 GameObject:
   m_ObjectHideFlags: 0

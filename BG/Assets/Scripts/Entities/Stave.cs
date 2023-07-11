@@ -13,6 +13,6 @@ public class Stave : IceCyclops
 
     private void Update()
     {
-        Debug.Log(cyclopsController.AgroMode);
+        Attack();
     }
 }       

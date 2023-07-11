@@ -35,10 +35,6 @@ public class Player : MonoBehaviour
         }
     }
 
-
-
-
-
     private void ShowIndicators()
     {
         HPBar.fillAmount = HealthPoint / 100f;
@@ -106,7 +102,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("ТЫ СДОХ НАХУЙ");
         }
-        //реализация поворота и джойстика
+        //реализация поворота и джой    стика
         MoveVector.x = JoystickMove.Horizontal;
         MoveVector.y = JoystickMove.Vertical;
         if (MoveVector.x > 0f && !ShootingMode)

@@ -43,11 +43,8 @@ public class IceCyclops : ENEMY
             IEnumerator SpawnDelay()
             {
                 isSpawning = true;
-                if (isSpawning == true)
-                {
-                    animator.SetTrigger("specialAttack");
-                }
                 yield return new WaitForSeconds(spawnCooldown);
+                animator.SetTrigger("specialAttack");
                 isSpawning = false;
             }
         }
@@ -93,12 +90,19 @@ public class IceCyclops : ENEMY
 
     protected void LrAttack()
     {
-        Vector2 direction = player.position - transform.position;
-        shotPoint.right = direction;
-        GameObject bullet = Instantiate(projectileIce, shotPoint.position, Quaternion.identity);
-        bullet.transform.right = direction;
-        Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
-        bulletRigidbody.velocity = direction.normalized * bulletSpeed;
+        if (player != null)
+        {
+            Vector2 direction = player.position - transform.position;
+            shotPoint.right = direction;
+            GameObject bullet = Instantiate(projectileIce, shotPoint.position, Quaternion.identity);
+            bullet.transform.right = direction;
+            Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+            bulletRigidbody.velocity = direction.normalized * bulletSpeed;
+        }
+        else
+        {
+            Debug.Log("generate");
+        }
     }
 
     protected void SpecialAttack()
