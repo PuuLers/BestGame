@@ -9,39 +9,7 @@ public class Gun : MonoBehaviour
     private float offset = 90;
     static public float rotZ;
     private float JoystickFireDistance = 0.7f;
-    private Animator animator;
-    [Range(0.1f, 10f)]
-    public float FireSpeed = 1;
-    public GameObject bullet;
-    public Transform shotPoint;
-
-
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
-
-
-
-    //вызывается в анимации
-    private void fire()
-    {
-        Bullet.Damage = Damage;
-        Instantiate(bullet, shotPoint.position, transform.rotation);
-    }
-    private void Animation()
-    {
-        if (Player.ShootingMode == true)
-        {
-            animator.SetBool("Shoot", true);
-            animator.speed = FireSpeed;
-        }
-        else
-        {
-            animator.SetBool("Shoot", false);
-            animator.speed = 1;
-        }
-    }
+    
 
 
     void Update()
@@ -73,6 +41,6 @@ public class Gun : MonoBehaviour
         {
             Player.ShootingMode = false;
         }
-        Animation();
+
     }
 }

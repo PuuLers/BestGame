@@ -48,9 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 1
-  bullet: {fileID: 0}
-  shotPoint: {fileID: 0}
 --- !u!114 &3917605053840606408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,9 +61,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 5
-  bullet: {fileID: 7561668970815862894, guid: b793217091fbe9e439337a395c045637, type: 3}
-  shotPoint: {fileID: 6722797694166446110}
   animator: {fileID: 4697341839754445146}
   FireSpeed: 5
   bullet: {fileID: 7561668970815862894, guid: b793217091fbe9e439337a395c045637, type: 3}
@@ -138,40 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 1
-  bullet: {fileID: 0}
-  shotPoint: {fileID: 0}
---- !u!1 &503522847938966337
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2120559137672602039}
-  m_Layer: 0
-  m_Name: Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2120559137672602039
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503522847938966337}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.186, y: 0.22, z: 0.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7555663445127215272}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1562135828899223757
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,9 +181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 3
-  bullet: {fileID: 7561668970815862894, guid: b793217091fbe9e439337a395c045637, type: 3}
-  shotPoint: {fileID: 1562135829264581893}
   animator: {fileID: 1562135828899223744}
   FireSpeed: 3
   bullet: {fileID: 7561668970815862894, guid: b793217091fbe9e439337a395c045637, type: 3}
@@ -241,9 +198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 1
-  bullet: {fileID: 0}
-  shotPoint: {fileID: 0}
 --- !u!95 &1562135828899223744
 Animator:
   serializedVersion: 5
@@ -1197,9 +1151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 1
-  bullet: {fileID: 0}
-  shotPoint: {fileID: 0}
 --- !u!114 &895902103847070977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1213,9 +1164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 1
-  bullet: {fileID: 7561668970815862894, guid: b793217091fbe9e439337a395c045637, type: 3}
-  shotPoint: {fileID: 8056298806308260132}
   animator: {fileID: 8574723274591158050}
   FireSpeed: 1
   bullet: {fileID: 7561668970815862894, guid: b793217091fbe9e439337a395c045637, type: 3}
@@ -1287,9 +1235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 1
-  bullet: {fileID: 0}
-  shotPoint: {fileID: 0}
 --- !u!1 &4109620424498312103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,8 +1347,7 @@ Transform:
   m_LocalPosition: {x: 0.59, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2120559137672602039}
+  m_Children: []
   m_Father: {fileID: 7808308530400067679}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1590,9 +1534,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 1
-  bullet: {fileID: 0}
-  shotPoint: {fileID: 0}
 --- !u!1 &4849121195351869534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,9 +1664,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 1
-  bullet: {fileID: 0}
-  shotPoint: {fileID: 0}
 --- !u!1 &5797042539307034087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,8 +1674,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7808308530400067679}
   - component: {fileID: 5986931775831152686}
-  - component: {fileID: 563693351952110190}
-  - component: {fileID: 2770662903049401590}
   m_Layer: 9
   m_Name: PKM
   m_TagString: Untagged
@@ -1774,50 +1710,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 1
-  bullet: {fileID: 0}
-  shotPoint: {fileID: 0}
---- !u!114 &563693351952110190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5797042539307034087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f4c2271ff6d4dc48ae3e9624328b04a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  JoystickGun: {fileID: 0}
-  FireSpeed: 5
-  bullet: {fileID: 7561668970815862894, guid: b793217091fbe9e439337a395c045637, type: 3}
-  shotPoint: {fileID: 2120559137672602039}
-  animator: {fileID: 2770662903049401590}
-  FireSpeed: 5
-  bullet: {fileID: 7561668970815862894, guid: b793217091fbe9e439337a395c045637, type: 3}
-  shotPoint: {fileID: 2120559137672602039}
---- !u!95 &2770662903049401590
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5797042539307034087}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5894774583695561471
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,9 +1756,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 1
-  bullet: {fileID: 0}
-  shotPoint: {fileID: 0}
 --- !u!1 &5971339105538110400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,37 +1872,6 @@ Transform:
   m_Father: {fileID: 2792756583613425470}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7243933707638877082
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7403735274964824757}
-  m_Layer: 0
-  m_Name: Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7403735274964824757
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7243933707638877082}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8712235931619618140}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7338593020726375959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,9 +1918,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 1
-  bullet: {fileID: 0}
-  shotPoint: {fileID: 0}
 --- !u!1 &7553908413577275832
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,8 +1946,7 @@ Transform:
   m_LocalPosition: {x: 0.441, y: 0.104, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7403735274964824757}
+  m_Children: []
   m_Father: {fileID: 1240231594199393706}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2158,7 +2012,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1240231594199393706}
   - component: {fileID: 310123948327777816}
-  - component: {fileID: 5838455273918038624}
   m_Layer: 9
   m_Name: PM
   m_TagString: Untagged
@@ -2195,30 +2048,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 1
-  bullet: {fileID: 7561668970815862894, guid: b793217091fbe9e439337a395c045637, type: 3}
-  shotPoint: {fileID: 7403735274964824757}
---- !u!95 &5838455273918038624
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7789138124675343753}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8310939379872777499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2265,9 +2094,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 1
-  bullet: {fileID: 0}
-  shotPoint: {fileID: 0}
 --- !u!1 &8406757283986453273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2400,9 +2226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 2
-  bullet: {fileID: 7561668970815862894, guid: b793217091fbe9e439337a395c045637, type: 3}
-  shotPoint: {fileID: 896535544461074243}
   animator: {fileID: 7846951959730366051}
   FireSpeed: 2
   bullet: {fileID: 7561668970815862894, guid: b793217091fbe9e439337a395c045637, type: 3}
@@ -2420,9 +2243,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JoystickGun: {fileID: 0}
-  FireSpeed: 1
-  bullet: {fileID: 0}
-  shotPoint: {fileID: 0}
 --- !u!95 &7846951959730366051
 Animator:
   serializedVersion: 5

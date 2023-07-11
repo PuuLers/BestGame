@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
         {
             anim.speed = 0.5f;
             Speed = ShootingSpeed;
-            if (Gun.rotZ < 0 || Gun.rotZ > 180)
+            if (AK.rotZ < 0 || AK.rotZ > 180)
             {
                 sprite.flipX = true;
             }
