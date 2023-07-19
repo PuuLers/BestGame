@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class ENEMY : MonoBehaviour
 {
-    protected bool Takedamage  = false;
+    protected bool Takedamage = false;
     public int HP;
     public int Damage;
     public float Speed;
     public float agrodistance;
-    private float distance;
-    private float distanceToKeep;
+    protected float distance;
+    public float distanceToKeep;
     public bool AgroMode = true;
     protected Transform player;
-    
+
 
     private void Start()
     {
@@ -68,24 +68,26 @@ public class ENEMY : MonoBehaviour
         }
     }
 
-    private void Move2()
-    { 
-        float distance = Vector2.Distance(transform.position, player.position);
-        if (distance < distanceToKeep)
+    protected void Move2()
+    {
+        if (AgroMode == true)
         {
-            Vector2 direction = (transform.position - player.position).normalized;
-            transform.Translate(direction * Speed * Time.deltaTime);
-            Vector3 LocalScale = Vector3.one;
-            if (transform.position.x > player.position.x)
+            if (distance > distanceToKeep)
             {
-                LocalScale.x = LocalScale.x * -1;
+                transform.position = Vector2.MoveTowards(transform.position, player.position, Speed * Time.fixedDeltaTime);
+                Vector3 LocalScale = Vector3.one;
+                if (transform.position.x > player.position.x)
+                {
+                    LocalScale.x = LocalScale.x * -1;
+                }
+                else
+                {
+                    LocalScale.x = LocalScale.x * 1;
+                }
+                transform.localScale = LocalScale;
             }
-            else
-            {
-                LocalScale.x = LocalScale.x * 1;
-            }
-            transform.localScale = LocalScale;
         }
+
     }
 
 

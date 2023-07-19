@@ -13,6 +13,7 @@ TagManager:
   - projectileSlug
   - IceArea
   - Ice cyclops
+  - projectileFire
   layers:
   - Default
   - TransparentFX

@@ -17,6 +17,12 @@ public class Player : MonoBehaviour
     static public float HealthPoint = 100f;
     public float Speed = 10f;
     static public float playerFreeze;
+    static public bool playerCombustion;
+    private float freezeDelay = 1f;
+    private float freezeTime = 0f;
+    private float burningDuration = 3f;
+    private float burningTime = 0f;
+    private float burnTickRate = 1f;
     private Rigidbody2D Rigidbody;
     private Vector2 MoveVector;
     private Animator anim;
@@ -60,6 +66,7 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
+        //Debug.Log(playerFreeze);
         //выводим показатели
         ShowIndicators();
         //замедление во время стрельбы
@@ -97,6 +104,21 @@ public class Player : MonoBehaviour
             StartCoroutine(DelayedPlayerFreeze());
             Speed = 0;
         }
+
+        if (playerCombustion)
+        {
+            burningTime += Time.deltaTime;
+
+            if (burningTime >= burningDuration)
+            {
+                StopBurning();
+            }
+            if (burningTime % burnTickRate < Time.deltaTime)
+            {
+                ApplyBurnDamage();
+            }
+        }
+
         //проверка здоровья
         if (HealthPoint <= 0)
         {
@@ -134,7 +156,29 @@ public class Player : MonoBehaviour
         HealthPoint -= Damage;
     }
 
+    public void StartBurning()
+    {
+        if (!playerCombustion)
+        {
+            playerCombustion = true;
+            burningTime = 0f;
+            Debug.Log("Player starts burning");
+        }
+    }
 
+    private void StopBurning()
+    {
+        if (playerCombustion)
+        {
+            playerCombustion = false;
+            Debug.Log("Player stops burning");
+        }
+    }
 
-
+    private void ApplyBurnDamage()
+    {
+        HealthPoint -= 10f;
+    }
 }
+
+

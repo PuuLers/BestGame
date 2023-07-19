@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.VersionControl.Asset;
-public class IceCyclops : ENEMY
+
+public class FireCyclops : ENEMY
 {
     private float timeBtwAttack;
     public float startTimeBtwAttack;
     private Animator animator;
     private float fireCooldown = 0.6f;
     private float spawnCooldown = 13f;
+    private int numberOfFireAreas = 6;
     public float bulletSpeed;
     public Transform shotPoint;
-    public GameObject projectileIce;
-    public GameObject IceArea;
-    public bool isAttacking = false;
+    public GameObject projectileFire;
+    public GameObject FireArea;
+    private bool isAttacking = false;
     private bool isSpawning = false;
 
 
@@ -80,7 +82,7 @@ public class IceCyclops : ENEMY
             {
                 if (timeBtwAttack <= 0)
                 {
-                    animator.Play("IceCyclops_meleeAttack");
+                    animator.Play("FireCyclops_meleeAttack");
                     Speed = 0;
 
                 }
@@ -98,7 +100,7 @@ public class IceCyclops : ENEMY
     {
         Vector2 direction = player.position - transform.position;
         shotPoint.right = direction;
-        GameObject bullet = Instantiate(projectileIce, shotPoint.position, Quaternion.identity);
+        GameObject bullet = Instantiate(projectileFire, shotPoint.position, Quaternion.identity);
         bullet.transform.right = direction;
         Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
         bulletRigidbody.velocity = direction.normalized * bulletSpeed;
@@ -106,12 +108,15 @@ public class IceCyclops : ENEMY
 
     protected void SpecialAttack()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < numberOfFireAreas; i++)
         {
-            Vector3 icePosition = player.transform.position + new Vector3(Random.Range(-2f, 2f), Random.Range(-1f, 1f), 0);
-            Instantiate(IceArea, icePosition, Quaternion.identity);
+            Vector2 direction = (player.position - transform.position).normalized;
+            GameObject fireTrail = Instantiate(FireArea, transform.position, Quaternion.identity);
+            fireTrail.GetComponent<Rigidbody2D>().velocity = direction * Speed;
         }
     }
+
+  
 
     protected void Attack()
     {

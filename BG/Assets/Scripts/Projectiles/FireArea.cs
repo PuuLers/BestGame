@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
-public class IceArea : MonoBehaviour
+public class FireArea : MonoBehaviour
 {
 
     private void Start()
@@ -13,14 +13,14 @@ public class IceArea : MonoBehaviour
     private void Hit()
     {
         Player.HealthPoint -= 10;
-        Player.playerFreeze += 1f;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other != null && other.CompareTag("Player"))
+        if (other != null && other.CompareTag("Player"))    
         {
             Hit();
+            other.GetComponent<Player>().StartBurning();
         }
     }
 }
