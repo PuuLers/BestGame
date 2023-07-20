@@ -19,6 +19,7 @@ public class projectileFire : MonoBehaviour
             {
                 hitinfo.collider.GetComponent<Player>().TakeDamage(Damage);
                 hitinfo.collider.GetComponent<Player>().StartBurning();
+                //Player.playerFreeze -= 1f;
             }
             Destroy(gameObject);
         }

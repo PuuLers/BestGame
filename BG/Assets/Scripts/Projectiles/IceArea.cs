@@ -21,6 +21,7 @@ public class IceArea : MonoBehaviour
         if (other != null && other.CompareTag("Player"))
         {
             Hit();
+            //hitinfo.collider.GetComponent<Player>().StopBurning();
         }
     }
 }

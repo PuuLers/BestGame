@@ -21,6 +21,7 @@ public class FireArea : MonoBehaviour
         {
             Hit();
             other.GetComponent<Player>().StartBurning();
+            //Player.playerFreeze -= 1f;
         }
     }
 }

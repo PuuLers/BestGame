@@ -18,8 +18,6 @@ public class Player : MonoBehaviour
     public float Speed = 10f;
     static public float playerFreeze;
     static public bool playerCombustion;
-    private float freezeDelay = 1f;
-    private float freezeTime = 0f;
     private float burningDuration = 3f;
     private float burningTime = 0f;
     private float burnTickRate = 1f;
@@ -63,10 +61,14 @@ public class Player : MonoBehaviour
         //присвоение значений и стабилизация скорости
         ShootingSpeed = Speed / 2;
         NormalizedSpeed = Speed;
+        StartCoroutine(IncreaseSpeedCoroutine());
     }
+
+
     void Update()
     {
-        //Debug.Log(playerFreeze);
+        Debug.Log(playerFreeze);
+        //Debug.Log(Speed);
         //выводим показатели
         ShowIndicators();
         //замедление во время стрельбы
@@ -88,11 +90,6 @@ public class Player : MonoBehaviour
             anim.speed = 1f;
             Speed = NormalizedSpeed;
         }
-        IEnumerator DelayedPlayerFreeze()
-        {
-            yield return new WaitForSeconds(2f);
-            playerFreeze = 0;
-        }
 
         if (playerFreeze > 0)
         {
@@ -101,8 +98,8 @@ public class Player : MonoBehaviour
 
         if (playerFreeze == 5)
         {
-            StartCoroutine(DelayedPlayerFreeze());
-            Speed = 0;
+            Speed = 0f;
+            Invoke(nameof(ResetPlayerSpeed), 3f);
         }
 
         if (playerCombustion)
@@ -156,6 +153,25 @@ public class Player : MonoBehaviour
         HealthPoint -= Damage;
     }
 
+    private IEnumerator IncreaseSpeedCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2f);
+
+            if (Speed < 10)
+            {
+                playerFreeze -= 1f;
+                Speed += 1f;
+            }
+        }
+    }
+
+    private void ResetPlayerSpeed()
+    {
+        Speed = 10f; // Восстановление начальной скорости игрока
+        playerFreeze = 0; // Сброс значения заморозки игрока
+    }
     public void StartBurning()
     {
         if (!playerCombustion)
@@ -166,7 +182,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void StopBurning()
+    public void StopBurning()
     {
         if (playerCombustion)
         {
