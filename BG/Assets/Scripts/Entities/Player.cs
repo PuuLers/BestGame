@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(playerFreeze);
+        //Debug.Log(playerFreeze);
         //Debug.Log(Speed);
         //выводим показатели
         ShowIndicators();

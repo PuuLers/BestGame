@@ -12,7 +12,7 @@ public class ENEMY : MonoBehaviour
     public float agrodistance;
     protected float distance;
     public float distanceToKeep;
-    public bool AgroMode = true;
+    public bool AgroMode = false;
     protected Transform player;
 
 
